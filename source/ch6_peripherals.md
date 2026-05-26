@@ -1095,29 +1095,20 @@ Offset Address: 0x34 Total Reset Value: 0x0000_0000
 :class: longtable
 
 * - Bits
+  - Access
   - Name
   - Description
   - Reset
-  - 
-  - 
 * - [31:3]
+  - -
   - reserved
   - 保留。
   - 0x00000000
-  - 
-  - 
 * - [2:0]
   - RW
-  - GPIO_13 管脚复用:
+  - gpio_13_sel
+  - GPIO_13 管脚复用:0: GPIO_13;1: UART1_CTS;2: RADAR_ANT0_SW;3: DFT_JTAG_TDO;4: JTAG_TMS;其他:保留。
   - 0x0
-  - 
-  - 
-* - 
-  - 
-  - 
-  - 
-  - 0: GPIO_13;1: UART1_CTS;2: RADAR_ANT0_SW;3: DFT_JTAG_TDO;4: JTAG_TMS;其他:保留。
-  - 
 ```
 
 ### GPIO_14_SEL
@@ -1849,7 +1840,7 @@ Offset Address: 0x820 Total Reset Value: 0x0000_0800
 * - [3]
   - RW
   - pad_gpio_08_ctrl_st
-  - GPIO_08.ST 管脚控制:0: No Cchmitt;1: Schmitt tEnable。
+  - GPIO_08.ST 管脚控制:0: No Schmitt;1: Schmitt Enable。
   - 0x0
 * - [2:0]
   - -
