@@ -43,15 +43,15 @@
 
 * - 符号
   - 说明
-* - ![高等级风险](images/593373a9a5ec1c8fae3583c07325764bb1639d7814d8b0995d747d595b927841.jpg)
+* - ![高等级风险](images/icon-danger-high.jpg)
   - 表示如不避免则将会导致死亡或严重伤害的具有高等级风险的危害。
-* - ![中等级风险](images/ff9c90750fac4e1da4f2c0f8aaf1e06a9fb47e9b4301f513cc1573722ed35c29.jpg)
+* - ![中等级风险](images/icon-danger-medium.jpg)
   - 表示如不避免则可能导致死亡或严重伤害的具有中等级风险的危害。
-* - ![低等级风险](images/ab8313750bd02cee57f594f4e5b946d424dfbd5d3ac23d84ce7546d3f4e9bc82.jpg)
+* - ![低等级风险](images/icon-danger-low.jpg)
   - 表示如不避免则可能导致轻微或中度伤害的具有低等级风险的危害。
-* - ![须知](images/51cb683d5bd9f636fdc27db4ed6bbf998119cefe534d829277be664a50c8dd7f.jpg)
+* - ![须知](images/icon-notice.jpg)
   - 用于传递设备或环境安全警示信息。如不避免则可能会导致设备损坏、数据丢失、设备性能降低或其它不可预知的结果。“须知”不涉及人身伤害。
-* - ![说明](images/557f05a533b09267e9c793034f78eb61443ee3a6037fe0e1cccdaf88c0b0e489.jpg)
+* - ![说明](images/icon-note.jpg)
   - 对正文中重点信息的补充说明。“说明”不是安全警示信息,不涉及人身、设备及环境伤害信息。
 ```
 

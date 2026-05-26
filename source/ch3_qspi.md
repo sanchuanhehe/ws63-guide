@@ -20,7 +20,7 @@ SFC 是一个 SPI Flash 控制器。业务侧提供一个 AHB（Advanced High Pe
 图3-1 SFC 应用框图
 
 
-![image](images/ed9f92e7599f2c798c8fb1b53badeabbe584840f3747a43845b92307483f5ebd.jpg)
+![image](images/fig-3-1-sfc-block-diagram.jpg)
 
 
 注：IF（Interface）。 
@@ -135,7 +135,7 @@ Flash 数据在线解密具有以下特点：
 图3-2 通过寄存器读取 Flash 的操作流程（查询方式）
 
 
-![image](images/d9b59521121c2b06c4d77162ce296e96a669c8ba5ffc1473bb53ee5456a4ff46.jpg)
+![image](images/fig-3-2-sfc-reg-read-flow.jpg)
 
 
 ### 3.3.5 通过寄存器方式写 Flash 操作流程
@@ -152,7 +152,7 @@ Flash 数据在线解密具有以下特点：
 图3-3 通过寄存器写 Flash 的操作流程（中断方式）
 
 
-![image](images/1fee75e0bc413d3f0c3b3a5612d3738025c8d9fb752e933a96137d341d031b0f.jpg)
+![image](images/fig-3-3-sfc-reg-write-flow.jpg)
 
 
 注：WREN（Write Read Enable），PP（Page Program），RDSR（Read Status Register）。
@@ -166,7 +166,7 @@ Flash 数据在线解密具有以下特点：
 图3-4 通过寄存器方式其他操作流程
 
 
-![image](images/f1f22f20012b7c92c5f38d8333b83124390986a130dc91b7fa80e86bc5e49359.jpg)
+![image](images/fig-3-4-sfc-other-op-flow.jpg)
 
 
 ### 说明

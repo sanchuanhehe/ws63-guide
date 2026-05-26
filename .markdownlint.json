@@ -1,0 +1,20 @@
+{
+  "default": true,
+  "MD013": {
+    "line_length": 200,
+    "tables": false,
+    "code_blocks": false
+  },
+  "MD009": false,
+  "MD012": false,
+  "MD041": false,
+  "MD024": false,
+  "MD025": false,
+  "MD033": false,
+  "MD026": {
+    "punctuation": ".,;:!?。，；：！？"
+  },
+  "MD046": {
+    "style": "fenced"
+  }
+}

@@ -34,7 +34,7 @@ TX 通路包含 LPF、UPC（UP Converter）、PA（Power Amplifier）。
 图4-1 RF 电路模块架构
 
 
-![image](images/aa85fbda28fce8e1c530fb038699df4ca363803199717527ac783fbfb1f924d7.jpg)
+![image](images/fig-4-1-rf-arch.jpg)
 
 
 ### 4.1.2 功能描述
@@ -1260,7 +1260,7 @@ WiFi ADC（1 个通道，通道有 IQ）、WiFi DAC（1 个通道，通道有 IQ
 图4-2 ABB 模块组成
 
 
-![image](images/941e76a669c5d7e59c0edd7a8b79034cb60bcc855bbeb8da5ec326c0d19afd89.jpg)
+![image](images/fig-4-2-abb-block.jpg)
 
 
 注：WADC（WiFi Analog Digital Converter），WDAC（WiFi Digital Analog Converter）。
