@@ -2,7 +2,7 @@
 
 # 概述
 
-SFC 是一个 SPI Flash 控制器。业务侧提供一个 AHB（Advanced High Performance Bus） Slave 接口，主要完成 AHB 通道对 SPI Flash 的访问控制功能；提供一个 AHB Master 接口，用于 DMA 方式读写 Flash。
+SFC 是一个 {term}`SPI` Flash 控制器。业务侧提供一个 AHB（Advanced High Performance Bus） Slave 接口，主要完成 AHB 通道对 SPI Flash 的访问控制功能；提供一个 AHB Master 接口，用于 {term}`DMA` 方式读写 Flash。
 
 ```{figure} ../images/fig-3-1-sfc-block-diagram.jpg
 :name: fig-3-1
@@ -40,7 +40,7 @@ AHB Master 接口具有以下特点：
 
 - 片选的存储空间最大支持到 64Mbit（3Byte 地址模式），片选映射基地址可配置，只支持片选 1，不支持片选 0。
 - 支持 Standard SPI、Dual-Output/Dual-Input SPI、Quad-Output/Quad-Input SPI、Dual-I/O SPI、Quad-I/O SPI 五种接口类型。上电后默认支持 Standard SPI 接口类型，可通过寄存器配置切换接口类型。
-- 支持 XIP（Executed In Place）。
+- 支持 {term}`XIP`（Executed In Place）。
 - SPI Flash 读写操作支持总线直接读写、寄存器编程读写、DMA 读写三种方式。
 - 支持多种写保护操作。
 - SFC 模块支持 SPI Mode0 和 Mode3，按协议要求，支持 SPI Mode0 和 Mode3 的 SPI Flash 器件在时钟的上升沿采样数据，在时钟的下降沿输出数据。
@@ -50,7 +50,7 @@ AHB Master 接口具有以下特点：
 
 Flash 数据在线解密具有以下特点：
 
-- 解密算法为 AES-128-CTR，仅支持 1 个 IV，秘钥来源于 KM 派生。
+- 解密算法为 {term}`AES`-128-CTR，仅支持 1 个 IV，秘钥来源于 KM 派生。
 - 支持 4 个解密区域，配置粒度为 256Byte；每个区域支持单独的 IV 解密起始地址可配，配置粒度同为 256Byte，4 个解密区域配置不能存在交叉地址。
 
 ```{note}

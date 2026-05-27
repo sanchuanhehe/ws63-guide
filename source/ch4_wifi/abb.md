@@ -4,22 +4,22 @@
 
 ## 概述
 
-ABB IP 用于 Connectivity SoC 芯片，是支持 WiFi 802.11b/g/n/ax（2.4G mode）系统的模拟数字接口模块，根据功能分为以下 2 个功能模块：
+ABB IP 用于 Connectivity {term}`SoC` 芯片，是支持 WiFi 802.11b/g/n/ax（2.4G mode）系统的模拟数字接口模块，根据功能分为以下 2 个功能模块：
 
-WiFi IQ-ADC
+{term}`WiFi` IQ-{term}`ADC`
 
 WiFi IQ DAC
 
 完成发送时的数模转换及接收时的模数转换功能。
 
-WiFi ADC（1 个通道，通道有 IQ）、WiFi DAC（1 个通道，通道有 IQ），以及时钟 buf 模块和 LDO，共同包括在 Q353333N1100 WL ABB 中，时钟 buf 和 LDO 不作为独立功能模块，不在行为模型中独立体现。
+WiFi ADC（1 个通道，通道有 IQ）、WiFi {term}`DAC`（1 个通道，通道有 IQ），以及时钟 buf 模块和 {term}`LDO`，共同包括在 Q353333N1100 WL ABB 中，时钟 buf 和 LDO 不作为独立功能模块，不在行为模型中独立体现。
 
 ```{figure} ../images/fig-4-2-abb-block.jpg
 :name: fig-4-2
 ABB 模块组成
 ```
 
-注：WADC（WiFi Analog Digital Converter），WDAC（WiFi Digital Analog Converter）。
+注：{term}`WADC`（WiFi Analog Digital Converter），{term}`WDAC`（WiFi Digital Analog Converter）。
 
 ## 功能描述
 
@@ -35,7 +35,7 @@ ABB IP 具有以下功能特点：
 
 校准包括：
 
-WLAN（Wireless Local Area Network）的 ADC 比较器校准。
+{term}`WLAN`（Wireless Local Area Network）的 ADC 比较器校准。
 
 WLAN DC Offset 校准。
 

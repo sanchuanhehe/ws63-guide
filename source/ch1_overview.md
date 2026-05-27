@@ -4,15 +4,15 @@
 
 ## 概述
 
-Q353333N1100 系列芯片是一款高度集成的 2.4GHz SoC Wi-Fi、BLE 和 SLE 的 Combo 芯片，集成 IEEE 802.11b/g/n/ax 基带和 RF 电路，RF 电路包括功率放大器 PA、低噪声放大器 LNA、RF balun、天线开关以及电源管理等模块；支持 HT 20MHz/40MHz、HE 20MHz 标准带宽，提供最大 150Mbit/s 物理层速率。
+Q353333N1100 系列芯片是一款高度集成的 2.4GHz {term}`SoC` Wi-Fi、{term}`BLE` 和 SLE 的 Combo 芯片，集成 {term}`IEEE` 802.11b/g/n/ax 基带和 RF 电路，RF 电路包括功率放大器 PA、低噪声放大器 {term}`LNA`、RF balun、天线开关以及电源管理等模块；支持 HT 20MHz/40MHz、HE 20MHz 标准带宽，提供最大 150Mbit/s 物理层速率。
 
-Q353333N1100 系列芯片 Wi-Fi 基带支持正交频分多址（OFDMA）技术，正交频分复用（OFDM）技术，并向下兼容直接序列扩频（DSSS）和补码键控（CCK）技术，支持 IEEE 802.11b/g/n 协议的各种数据速率，支持 IEEE 802.11ax 协议的 MCS0~MCS9 速率。
+Q353333N1100 系列芯片 Wi-Fi 基带支持正交频分多址（OFDMA）技术，正交频分复用（{term}`OFDM`）技术，并向下兼容直接序列扩频（{term}`DSSS`）和补码键控（{term}`CCK`）技术，支持 IEEE 802.11b/g/n 协议的各种数据速率，支持 IEEE 802.11ax 协议的 MCS0~MCS9 速率。
 
 Q353333N1100 系列芯片支持 BLE 1MHz/2MHz 频宽，支持 BLE 5.4 协议，支持 BLE Mesh 和 BLE 网关功能，最大空口速率 2Mbps。
 
 Q353333N1100 系列芯片支持 SLE 1MHz/2MHz/4MHz 频宽，支持 SLE1.0 协议，支持 SLE 网关功能，Q353333N1100 最大空口速率 4Mbps，Q353333N1100E 最大空口速率 12Mbps。
 
-Q353333N1100 系列芯片集成高性能 32bit 微处理器、硬件安全引擎以及丰富的外设接口，外设接口包括 SPI、QSPI、UART、I2C、PWM、GPIO 和多路 ADC；芯片内置 SRAM 和 Flash，可独立运行，并支持在 Flash 上运行程序。
+Q353333N1100 系列芯片集成高性能 32bit 微处理器、硬件安全引擎以及丰富的外设接口，外设接口包括 {term}`SPI`、QSPI、UART、I2C、PWM、{term}`GPIO` 和多路 {term}`ADC`；芯片内置 SRAM 和 Flash，可独立运行，并支持在 Flash 上运行程序。
 
 Q353333N11001E 支持雷达感知功能，智能感知房间内是否有人。
 
@@ -25,18 +25,18 @@ Q353333N1100 系列芯片适应于智能家电等物联网智能终端领域。
 ### Wi-Fi
 
 - 1×1 2.4GHz 频段
-- PHY 支持 IEEE 802.11b/g/n/ax
-- MAC 支持 IEEE 802.11d/e/i/k/v/r/w
+- {term}`PHY` 支持 IEEE 802.11b/g/n/ax
+- {term}`MAC` 支持 IEEE 802.11d/e/i/k/v/r/w
 - 支持 802.11n 20MHz/40MHz 频宽，支持 802.11ax 20MHz 频宽
 - 支持最大速率：150Mbit/s@HT40 MCS7，114.7Mbit/s@HE20 MCS9
 - 内置 PA 和 LNA，集成 TX/RX Switch、Balun 等
-- 支持 STA 和 SoftAP 形态，作为 SoftAP 时最大支持 6 个 STA 接入
-- 支持 A-MPDU、A-MSDU
-- 支持 Block-ACK
+- 支持 {term}`STA` 和 SoftAP 形态，作为 SoftAP 时最大支持 6 个 STA 接入
+- 支持 {term}`A-MPDU`、A-MSDU
+- 支持 Block-{term}`ACK`
 - 支持 QoS，满足不同业务服务质量需求
-- 支持 WPA/WPA2/WPA3 Personal、WPS2.0、WAPI
+- 支持 {term}`WPA`/WPA2/WPA3 Personal、WPS2.0、WAPI
 - 支持 RF 自校准方案
-- 支持 STBC 和 LDPC
+- 支持 {term}`STBC` 和 LDPC
 - 支持雷达感知功能（仅 Q353333N11001E 芯片支持）
 
 ### 蓝牙
@@ -60,19 +60,19 @@ Q353333N1100 系列芯片适应于智能家电等物联网智能终端领域。
 ### CPU 子系统
 
 - 高性能 32bit 微处理器，最大工作频率 240MHz
-- 内嵌 SRAM 606KB、ROM 300KB
+- 内嵌 {term}`SRAM` 606KB、{term}`ROM` 300KB
 - 内嵌 4MB Flash
 
 ### 外围接口
 
-- 1 个 SPI 接口、1 个 QSPI 接口、2 个 I2C 接口、1 个 I2S 接口、3 个 UART 接口、19 个 GPIO 接口、6 路 ADC 输入、8 路 PWM（注：上述接口通过复用实现）
+- 1 个 SPI 接口、1 个 QSPI 接口、2 个 I2C 接口、1 个 I2S 接口、3 个 {term}`UART` 接口、19 个 GPIO 接口、6 路 ADC 输入、8 路 PWM（注：上述接口通过复用实现）
 - 外部晶体时钟频率 24MHz、40MHz
 
 ### 其他信息
 
 - 电源电压输入：典型值 3.3V/5V
-- IO 电源电压支持 1.8V/3.3V，外接 MCU 和调试的 UART 支持 5V tolerant
-- 封装：QFN-40，5mm×5mm
+- IO 电源电压支持 1.8V/3.3V，外接 {term}`MCU` 和调试的 UART 支持 5V tolerant
+- 封装：{term}`QFN`-40，5mm×5mm
 - 工作温度：-40℃～+85℃
 
 ### 遵从的标准与协议

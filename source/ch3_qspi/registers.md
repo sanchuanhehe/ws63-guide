@@ -450,7 +450,7 @@ Offset Address: 0x0204 Total Reset Value: 0x0000_0000
 
 ## BUS_DMA_CTRL
 
-BUS_DMA_CTRL 为 DMA 操作控制寄存器。
+BUS_DMA_CTRL 为 {term}`DMA` 操作控制寄存器。
 
 Offset Address: 0x0240 Total Reset Value: 0x0000_0000
 

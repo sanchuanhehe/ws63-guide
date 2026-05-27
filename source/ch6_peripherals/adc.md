@@ -4,7 +4,7 @@
 
 ## 概述
 
-LSADC 为一款 SAR（Successive Approximations Register） ADC（逐次逼近型数模转换设备），实现将模拟信号转变成数字信号的功能。
+LSADC 为一款 {term}`SAR`（Successive Approximations Register） {term}`ADC`（逐次逼近型数模转换设备），实现将模拟信号转变成数字信号的功能。
 
 ```{list-table}
 :header-rows: 1

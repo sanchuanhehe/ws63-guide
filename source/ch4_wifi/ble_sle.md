@@ -4,7 +4,7 @@
 
 ## 概述
 
-BLE/SLE 部分包含 MODEM 和 MAC，MODEM 实现调制解调功能，MAC 部分实现调度、收发控制和组包解包功能。
+{term}`BLE`/SLE 部分包含 MODEM 和 {term}`MAC`，MODEM 实现调制解调功能，MAC 部分实现调度、收发控制和组包解包功能。
 
 ## 功能描述
 
@@ -138,8 +138,8 @@ SLE 主要特性如表 4-2 所示。
 
 ## 中断
 
-BLE&SLE CPU 只有 2 个主中断源 ble_irq/SLE_irq，每个中断源由多个子中断源汇和而成，CPU 响应相应中断源，通过查询中断状态寄存器来查询子中断类型。
+BLE&SLE {term}`CPU` 只有 2 个主中断源 ble_irq/SLE_irq，每个中断源由多个子中断源汇和而成，CPU 响应相应中断源，通过查询中断状态寄存器来查询子中断类型。
 
 ## 加密
 
-BLE 支持 AES-128 加密方式，SLE 支持 SM4 和 AES-128 加密。
+BLE 支持 {term}`AES`-128 加密方式，SLE 支持 SM4 和 AES-128 加密。

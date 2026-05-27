@@ -13,7 +13,7 @@ ADC 管脚：LSADC 通道与 GPIO 功能只支持其中 1 种功能，ADC 通道
 ```
 
 
-表6-1 ADC 通道管脚与复用管脚对应关系
+表6-1 {term}`ADC` 通道管脚与复用管脚对应关系
 
 | 复用管脚名称 | ADC 管脚 |
 | --- | --- |
@@ -33,7 +33,7 @@ ADC 管脚：LSADC 通道与 GPIO 功能只支持其中 1 种功能，ADC 通道
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 4 | GPIO_00 | GPIO_00_SEL | GPIO_00 | PWM0 | DIAG[0] | SPI1_CSN | JTAG_TDI | - | - | - |
 | 5 | GPIO_01 | GPIO_01_SEL | GPIO_01 | PWM1 | DIAG[1] | SPI1_IO0 | JTAG_MODE | BT_SAMPLE | - | - |
-| 6 | GPIO_02 | GPIO_02_SEL | GPIO_02 | PWM2 | DIAG[2] | SPI1_IO3 | WIFI_TSF_SYNC | WL_GLP_SYNC_PULSE | BLE&SLE_GLP_SYNC_PULSE | - |
+| 6 | GPIO_02 | GPIO_02_SEL | GPIO_02 | PWM2 | DIAG[2] | SPI1_IO3 | WIFI_TSF_SYNC | WL_GLP_SYNC_PULSE | {term}`BLE`&SLE_GLP_SYNC_PULSE | - |
 | 7 | GPIO_03 | GPIO_03_SEL | GPIO_03 | PWM3 | PMU_32_K_TEST | SPI1_IO1 | HW_ID[0] | DIAG[3] | - | - |
 | 8 | GPIO_04 | GPIO_04_SEL | SSI_CLK | PWM4 | GPIO_04 | SPI1_IO1 | JTAG_ENABLE | DFT_JTAG_TMS | - | - |
 | 9 | GPIO_05 | GPIO_05_SEL | SSI_DATA | PWM5 | UART2_CTS | SPI1_IO2 | GPIO_05 | SPI0_IN | DFT_JTAG_TCK | - |
@@ -53,7 +53,7 @@ ADC 管脚：LSADC 通道与 GPIO 功能只支持其中 1 种功能，ADC 通道
 |  |  |  |  |  |  |  |  |  |  |  |
 
 
-GPIO 的软件复用管脚说明如表 6-3 所示。
+{term}`GPIO` 的软件复用管脚说明如表 6-3 所示。
 
 表6-3 GPIO 的软件复用管脚说明
 

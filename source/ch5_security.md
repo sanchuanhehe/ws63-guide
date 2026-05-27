@@ -12,7 +12,7 @@
 
 安全子系统支持以下功能：
 
-- 支持 AES/SM4 对称算法加解密。
+- 支持 {term}`AES`/SM4 对称算法加解密。
 
 - 支持 SHA1/SHA2/SM3 散列算法。
 
@@ -26,7 +26,7 @@
 
 ### 概述
 
-实现 AES-128/AES-192/AES-256/SM4 对称加解密算法的算子模块，由 CPU 配置发起计算。
+实现 AES-128/AES-192/AES-256/SM4 对称加解密算法的算子模块，由 {term}`CPU` 配置发起计算。
 
 ### 功能描述
 
@@ -34,7 +34,7 @@
 
 - 支持 AES-128/AES-192/AES-256/SM4。
 
-- 支持 ECB/CBC/CTR/CFB/OFB/CCM/GCM/CBC_MAC/CMAC 工作模式。
+- 支持 ECB/{term}`CBC`/CTR/CFB/OFB/CCM/GCM/CBC_MAC/CMAC 工作模式。
 
 ## HASH 模块
 
@@ -74,7 +74,7 @@ HASH 模块具有以下功能特点：
 
 ### 概述
 
-非对称公钥算法模块可以实现非对称密码算法 RSA（Rivest-Shamir-Adleman）、ECC（Elliptic Curve Cryptography）、SM2 的功能。CPU 可以访问 PKE 模块的内部寄存器，配置计算参数和读取计算结果或查询模块的工作状态。
+非对称公钥算法模块可以实现非对称密码算法 {term}`RSA`（Rivest-Shamir-Adleman）、ECC（Elliptic Curve Cryptography）、SM2 的功能。CPU 可以访问 PKE 模块的内部寄存器，配置计算参数和读取计算结果或查询模块的工作状态。
 
 ### 功能描述
 
@@ -102,7 +102,7 @@ TRNG 模块具有以下功能特点：
 
 ### 概述
 
-EFUSE IP 是一种可编程的存储单元，由于其仅可编程一次的特征，多用于芯片保存 Chip ID、密钥或其他一次性存储数据。
+{term}`EFUSE` IP 是一种可编程的存储单元，由于其仅可编程一次的特征，多用于芯片保存 Chip ID、密钥或其他一次性存储数据。
 
 ### 功能描述
 

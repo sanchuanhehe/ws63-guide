@@ -4,23 +4,23 @@
 
 ## 概述
 
-WLAN PHY 实现 802.11 协议定义的物理层功能，包括：
+{term}`WLAN` {term}`PHY` 实现 802.11 协议定义的物理层功能，包括：
 
-- 802.11b 协议定义的 DSSS、CCK 调制解调
-- 802.11g、802.11n、802.11ax 协议定义的 OFDM 调制解调：发送方向包括加扰、交织、编码、OFDM 调制等处理；接收方向包括 OFDM 解调、Viterbi 译码、解交织、解扰等处理；同时实现 AGC（Automatic Gain Control）、CCA（Clear Channel Assessment）、RSSI（Receive Signal Strength Indicator）功能
+- 802.11b 协议定义的 {term}`DSSS`、{term}`CCK` 调制解调
+- 802.11g、802.11n、802.11ax 协议定义的 {term}`OFDM` 调制解调：发送方向包括加扰、交织、编码、OFDM 调制等处理；接收方向包括 OFDM 解调、Viterbi 译码、解交织、解扰等处理；同时实现 {term}`AGC`（Automatic Gain Control）、{term}`CCA`（Clear Channel Assessment）、{term}`RSSI`（Receive Signal Strength Indicator）功能
 - RF/ABB 校准功能
 
 ## 功能描述
 
-WiFi PHY 具有以下功能特点：
+{term}`WiFi` PHY 具有以下功能特点：
 
 - 支持 IEEE802.11b/g/n/ax 无线局域网络通信协议，其中 ax 支持 su/ersu 的收发、 tb 帧的发送、mu 帧的接收。
 
-- 支持 802.11b 的 DSSS、CCK，802.11g/n/ax 的 BCC(Binary Convolutional Code) 编解码，802.11n/ax 的 LDPC(Low Density Parity Check)的编码。
+- 支持 802.11b 的 DSSS、CCK，802.11g/n/ax 的 {term}`BCC`(Binary Convolutional Code) 编解码，802.11n/ax 的 LDPC(Low Density Parity Check)的编码。
 
 - 支持 2.4G Band， 802.11b/g/n/ax 支持 20MHz 信号带宽， 802.11n 支持 40MHz 信号带宽， 802.11ax（tb/mu）支持 20MHz-only 信号带宽。
 
-- 支持 4 选 1 多天线分集，最大支持 1 个空间流；802.11n/ax 支持 STBC(Space-Time Block Code)接收; 802.11n/ax 支持 4x1 TxBF； 802.11ax 最多支持 4 用户识别并支持配置其中任一个用户接收。
+- 支持 4 选 1 多天线分集，最大支持 1 个空间流；802.11n/ax 支持 {term}`STBC`(Space-Time Block Code)接收; 802.11n/ax 支持 4x1 TxBF； 802.11ax 最多支持 4 用户识别并支持配置其中任一个用户接收。
 
 - 支持雷达感知(Radar Sensing)。
 
@@ -28,7 +28,7 @@ WiFi PHY 具有以下功能特点：
 
 - 支持 PSD(Power Spectral Desity)上报。
 
-- 支持 CSI(Channel State Infomation)上报。
+- 支持 {term}`CSI`(Channel State Infomation)上报。
 
 - 支持 ABB/RF 校准功能。
 
@@ -42,7 +42,7 @@ PHY 模式初始化配置支持物理带宽为 20MHz 的 WiFi 业务收发，在
 
 ### 测试模式
 
-测试模式主要是常发、常收测试。常发测试指基于描述符或配置寄存器下发 TXVECTOR 来启动 RF 线控及 PHY 内部编码调制等，最终将数字 DAC 数据送给 ABB/RF 输出，多帧连续输出，配合仪器用于测试发送时各种性能指标或基本问题定位；常收测试将经过 ABB/RF 的数字 ADC 数据送给 PHY 进行解调，并将解调后的数据送给 MAC 进行 FCS（Frame Check Sequence）校验，来统计接收数据是否正确，多帧连续输入，配合仪器用于测试接收时各种性能指标或基本问题定位。
+测试模式主要是常发、常收测试。常发测试指基于描述符或配置寄存器下发 TXVECTOR 来启动 RF 线控及 PHY 内部编码调制等，最终将数字 {term}`DAC` 数据送给 ABB/RF 输出，多帧连续输出，配合仪器用于测试发送时各种性能指标或基本问题定位；常收测试将经过 ABB/RF 的数字 {term}`ADC` 数据送给 PHY 进行解调，并将解调后的数据送给 {term}`MAC` 进行 FCS（Frame Check Sequence）校验，来统计接收数据是否正确，多帧连续输入，配合仪器用于测试接收时各种性能指标或基本问题定位。
 
 ### 业务模式
 
@@ -50,7 +50,7 @@ PHY 模式初始化配置支持物理带宽为 20MHz 的 WiFi 业务收发，在
 
 ### 雷达感知模式
 
-雷达感知模式下，PHY 受上层 MAC 主控，根据业务需求启动雷达感知使能。PHY 从 PKTRAM 中读取 DAC 采样率下的雷达数据，经过校准后送给 ABB/RF；同时将经过 ABB/RF 的数字 ADC 数据经过固定增益控制后进行校准处理，校准后的 ADC 数据储存在 PKTRAM 中，并给出中断信息，CPU 收到中断信息后对存储在 PKTRAM 中的雷达数据做进一步处理，满足雷达感知业务需求。
+雷达感知模式下，PHY 受上层 MAC 主控，根据业务需求启动雷达感知使能。PHY 从 PKTRAM 中读取 DAC 采样率下的雷达数据，经过校准后送给 ABB/RF；同时将经过 ABB/RF 的数字 ADC 数据经过固定增益控制后进行校准处理，校准后的 ADC 数据储存在 PKTRAM 中，并给出中断信息，{term}`CPU` 收到中断信息后对存储在 PKTRAM 中的雷达数据做进一步处理，满足雷达感知业务需求。
 
 ### PSD 模式
 

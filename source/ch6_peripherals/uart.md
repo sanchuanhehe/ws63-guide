@@ -4,7 +4,7 @@
 
 ## 概述
 
-通用异步收发器 UART（universal asynchronous receiver/transmitter）是一个异步串行的通信接口，UART 主要用于和外部芯片的 UART 进行对接，实现两芯片间的通信。
+通用异步收发器 {term}`UART`（universal asynchronous receiver/transmitter）是一个异步串行的通信接口，UART 主要用于和外部芯片的 UART 进行对接，实现两芯片间的通信。
 
 芯片提供 3 个 UART 单元（UART0/1/2），UART0 仅支持两线模式，UART1/2 支持流控功能。
 
@@ -30,7 +30,7 @@ UART 具有以下功能特点：
 
 - 支持三种数据搬运方式：
 
-  - DMA 方式
+  - {term}`DMA` 方式
   - 中断方式
   - 软件查询方式
 

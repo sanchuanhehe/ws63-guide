@@ -4,11 +4,11 @@
 
 ## 概述
 
-RF 部分包含 2.4G RX、TX、PLL 三个模块，支持 IEEE 802.11b/g/n/ax 20M 模式。RF 电路主要功能包括：
+RF 部分包含 2.4G RX、TX、{term}`PLL` 三个模块，支持 {term}`IEEE` 802.11b/g/n/ax 20M 模式。RF 电路主要功能包括：
 
 - 集成 TX/RX Switch
-- RX 通路：LNA、Mixer、LPF（Low Pass Filter）、VGA（Variable Gain Amplifier）
-- TX 通路：LPF、UPC（UP Converter）、PA（Power Amplifier）
+- RX 通路：{term}`LNA`、Mixer、LPF（Low Pass Filter）、{term}`VGA`（Variable Gain Amplifier）
+- TX 通路：{term}`LPF`、UPC（UP Converter）、PA（Power Amplifier）
 - 集成 PLL/LO（Local Oscillator）通路，为信号通路提供本振
 - 集成 Radar 功能
 
@@ -19,7 +19,7 @@ RF 电路模块架构
 
 ## 功能描述
 
-WiFi RF 具有以下功能特点：
+{term}`WiFi` RF 具有以下功能特点：
 
 - RF 电路提供稳定的 LO 信号，支持收发信号的上下变频功能。
 
@@ -27,7 +27,7 @@ WiFi RF 具有以下功能特点：
 
 ## RF 性能
 
-芯片集成 2.4G WiFi/BLE/SLE 收发机，支持雷达功能。除雷达在 RFI 口接收外，其他功能均在 RFIO 口测试。
+芯片集成 2.4G WiFi/{term}`BLE`/SLE 收发机，支持雷达功能。除雷达在 RFI 口接收外，其他功能均在 RFIO 口测试。
 
 ```{list-table}
 :header-rows: 1
