@@ -52,10 +52,25 @@ templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 # -- Options for HTML output -------------------------------------------------
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'sphinx_book_theme'
 html_static_path = ['_static']
 html_language = 'zh_CN'
 html_permalinks_icon = '#'
+
+html_theme_options = {
+    'repository_url': 'https://github.com/sanchuanhehe/ws63-guide',
+    'repository_branch': 'main',
+    'path_to_docs': 'source',
+    'use_edit_page_button': True,
+    'use_issues_button': True,
+    'use_repository_button': True,
+    'use_download_button': False,
+    'home_page_in_toc': True,
+    'show_navbar_depth': 1,
+    'max_navbar_depth': 3,
+    'show_toc_level': 2,
+    'toc_title': '本页内容',
+}
 
 # -- Options for LaTeX output ------------------------------------------------
 latex_elements = {
