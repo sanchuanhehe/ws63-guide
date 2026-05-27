@@ -39,1188 +39,1188 @@ RF 电路提供稳定的 LO 信号，支持收发信号的上下变频功能。
 :class: longtable
 
 * - 参数
-- Sub-Item
-- 最小值
-- 典型值
-- 最大值
-- 单位
-- 测试条件
+  - Sub-Item
+  - 最小值
+  - 典型值
+  - 最大值
+  - 单位
+  - 测试条件
 * - RF 工作频率段
-- -
-- 2400
-- -
-- 2500
-- MHz
-- 2401MHz 以下和2483.5MHz 以上频点无法满足无委会辐射要求。信道频率的选择需要遵循协议和法规要求。
+  - -
+  - 2400
+  - -
+  - 2500
+  - MHz
+  - 2401MHz 以下和2483.5MHz 以上频点无法满足无委会辐射要求。信道频率的选择需要遵循协议和法规要求。
 * - **WIF RX 11b 灵敏度**
--
--
--
--
--
--
+  -
+  -
+  -
+  -
+  -
+  -
 * - 1 MbpsDSSS
-- -
-- -99
-- -98
-- dBm
--
--
+  - -
+  - -99
+  - -98
+  - dBm
+  -
+  -
 * - 2 MbpsDSSS
-- -
-- -96
-- -95
-- dBm
--
--
+  - -
+  - -96
+  - -95
+  - dBm
+  -
+  -
 * - 5.5 Mbps DSSS/CCK
-- -
-- -94
-- -93
-- dBm
--
--
+  - -
+  - -94
+  - -93
+  - dBm
+  -
+  -
 * - 11 Mbps DSSS/CCK
-- -
-- -91
-- -90
-- dBm
--
--
+  - -
+  - -91
+  - -90
+  - dBm
+  -
+  -
 * - **WIF RX 11g 灵敏度**
--
--
--
--
--
--
+  -
+  -
+  -
+  -
+  -
+  -
 * - BPSK, R=1/2 (6Mbps OFDM)
-- -
-- -96
-- -95
-- dBm
--
--
+  - -
+  - -96
+  - -95
+  - dBm
+  -
+  -
 * - BPSK, R=3/4 (9Mbps OFDM)
-- -
-- -94
-- -92
-- dBm
--
--
+  - -
+  - -94
+  - -92
+  - dBm
+  -
+  -
 * - QPSK, R=1/2 (12Mbps OFDM)
-- -
-- -93
-- -91
-- dBm
--
--
+  - -
+  - -93
+  - -91
+  - dBm
+  -
+  -
 * - QPSK, R=3/4 (18Mbps OFDM)
-- -
-- -90
-- -89
-- dBm
--
--
+  - -
+  - -90
+  - -89
+  - dBm
+  -
+  -
 * - 16-QAM, R=1/2 (24Mbps OFDM)
-- -
-- -87
-- -86
-- dBm
--
--
+  - -
+  - -87
+  - -86
+  - dBm
+  -
+  -
 * - 16-QAM, R=3/4 (36Mbps OFDM)
-- -
-- -84
-- -82
-- dBm
--
--
+  - -
+  - -84
+  - -82
+  - dBm
+  -
+  -
 * - 16-QAM, R=1/2 (48Mbps OFDM)
-- -
-- -80
-- -78
-- dBm
--
--
+  - -
+  - -80
+  - -78
+  - dBm
+  -
+  -
 * - 64-QAM, R=3/4 (54Mbps OFDM)
-- -
-- -78
-- -76
-- dBm
--
--
+  - -
+  - -78
+  - -76
+  - dBm
+  -
+  -
 * - **WIF RX 11n HT20-MF 灵敏度**
--
--
--
--
--
--
+  -
+  -
+  -
+  -
+  -
+  -
 * - HT20 MCS0
-- -
-- -95
-- -94
-- dBm
-- BCC Long PER 10%, 4096
--
+  - -
+  - -95
+  - -94
+  - dBm
+  - BCC Long PER 10%, 4096
+  -
 * - HT20MCS1
-- -
-- -92
-- -91
-- dBm
--
--
+  - -
+  - -92
+  - -91
+  - dBm
+  -
+  -
 * - HT20MCS2
-- -
-- -90
-- -88
-- dBm
--
--
+  - -
+  - -90
+  - -88
+  - dBm
+  -
+  -
 * - HT20MCS3
-- -
-- -87
-- -85
-- dBm
--
--
+  - -
+  - -87
+  - -85
+  - dBm
+  -
+  -
 * - HT20MCS4
-- -
-- -83
-- -82
-- dBm
--
--
+  - -
+  - -83
+  - -82
+  - dBm
+  -
+  -
 * - HT20MCS5
-- -
-- -79
-- -78
-- dBm
--
--
+  - -
+  - -79
+  - -78
+  - dBm
+  -
+  -
 * - HT20MCS6
-- -
-- -77
-- -75
-- dBm
--
--
+  - -
+  - -77
+  - -75
+  - dBm
+  -
+  -
 * - HT20MCS7
-- -
-- -76
-- -74
-- dBm
--
--
+  - -
+  - -76
+  - -74
+  - dBm
+  -
+  -
 * - **WIF RX 11n HT40-MF 灵敏度**
--
--
--
--
--
--
+  -
+  -
+  -
+  -
+  -
+  -
 * - HT40MCS0
-- -
-- -93
-- -92
-- dBm
--
--
+  - -
+  - -93
+  - -92
+  - dBm
+  -
+  -
 * - HT40MCS1
-- -
-- -90
-- -88
-- dBm
--
--
+  - -
+  - -90
+  - -88
+  - dBm
+  -
+  -
 * - HT40MCS2
-- -
-- -87
-- -86
-- dBm
--
--
+  - -
+  - -87
+  - -86
+  - dBm
+  -
+  -
 * - HT40MCS3
-- -
-- -84
-- -83
-- dBm
--
--
+  - -
+  - -84
+  - -83
+  - dBm
+  -
+  -
 * - HT40MCS4
-- -
-- -81
-- -79
-- dBm
--
--
+  - -
+  - -81
+  - -79
+  - dBm
+  -
+  -
 * - HT40MCS5
-- -
-- -76
-- -75
-- dBm
--
--
+  - -
+  - -76
+  - -75
+  - dBm
+  -
+  -
 * - HT40MCS6
-- -
-- -74
-- -73
-- dBm
--
--
+  - -
+  - -74
+  - -73
+  - dBm
+  -
+  -
 * - HT40MCS7
-- -
-- -73
-- -72
-- dBm
--
--
+  - -
+  - -73
+  - -72
+  - dBm
+  -
+  -
 * - **WIF RX 11ax HE20 灵敏度**
--
--
--
--
--
--
+  -
+  -
+  -
+  -
+  -
+  -
 * - HE20MCS0
-- -
-- -96
-- -95
-- dBm
--
--
+  - -
+  - -96
+  - -95
+  - dBm
+  -
+  -
 * - HE20MCS1
-- -
-- -93
-- -92
-- dBm
--
--
+  - -
+  - -93
+  - -92
+  - dBm
+  -
+  -
 * - HE20MCS2
-- -
-- -91
-- -89
-- dBm
--
--
+  - -
+  - -91
+  - -89
+  - dBm
+  -
+  -
 * - HE20 MCS3
-- -
-- -88
-- -87
-- dBm
--
--
+  - -
+  - -88
+  - -87
+  - dBm
+  -
+  -
 * - HE20 MCS4
-- -
-- -84
-- -83
-- dBm
--
--
+  - -
+  - -84
+  - -83
+  - dBm
+  -
+  -
 * - HE20 MCS5
-- -
-- -80
-- -79
-- dBm
--
--
+  - -
+  - -80
+  - -79
+  - dBm
+  -
+  -
 * - HE20 MCS6
-- -
-- -79
-- -77
-- dBm
--
--
+  - -
+  - -79
+  - -77
+  - dBm
+  -
+  -
 * - HE20 MCS7
-- -
-- -77
-- -75
-- dBm
--
--
+  - -
+  - -77
+  - -75
+  - dBm
+  -
+  -
 * - HE20 MCS8
-- -
-- -73
-- -72
-- dBm
--
--
+  - -
+  - -73
+  - -72
+  - dBm
+  -
+  -
 * - HE20 MCS9
-- -
-- -71
-- -70
-- dBm
--
--
+  - -
+  - -71
+  - -70
+  - dBm
+  -
+  -
 * - **WIFI RX 11b 最大解调电平**
--
--
--
--
--
--
+  -
+  -
+  -
+  -
+  -
+  -
 * - 1 Mbps DSSS
-- -
-- 0
-- -
-- dBm
--
--
+  - -
+  - 0
+  - -
+  - dBm
+  -
+  -
 * - 2 Mbps DSSS
-- -
-- 0
-- -
-- dBm
--
--
+  - -
+  - 0
+  - -
+  - dBm
+  -
+  -
 * - 5.5 Mbps DSSS/CCK
-- -
-- 0
-- -
-- dBm
--
--
+  - -
+  - 0
+  - -
+  - dBm
+  -
+  -
 * - 11 Mbps DSSS/CCK
-- -
-- 0
-- -
-- dBm
--
--
+  - -
+  - 0
+  - -
+  - dBm
+  -
+  -
 * - WIFI RX 11g 最大解调电平
-- 64-QAM, R=3/4 (54Mbps OFDM)
-- -
-- 0
-- -
-- dBm
-- PER 8%, 1000 octets PPDU
+  - 64-QAM, R=3/4 (54Mbps OFDM)
+  - -
+  - 0
+  - -
+  - dBm
+  - PER 8%, 1000 octets PPDU
 * - WIFI RX 11n HT20 最大解调电平
-- HT20 MCS7
-- -
-- 0
-- -
-- dBm
-- PER 10%, 4096 octets PPDU
+  - HT20 MCS7
+  - -
+  - 0
+  - -
+  - dBm
+  - PER 10%, 4096 octets PPDU
 * - **WIFI RX 11b 邻道抑制比**
--
--
--
--
--
--
+  -
+  -
+  -
+  -
+  -
+  -
 * - 1Mbps DSSS
-- -
-- 48
-- -
-- dB
-- 有用信号-74dBm, PER 8%, 1024 octets PPDU
--
+  - -
+  - 48
+  - -
+  - dB
+  - 有用信号-74dBm, PER 8%, 1024 octets PPDU
+  -
 * - 2Mbps DSSS
-- -
-- 59
-- -
-- dB
-- 有用信号-74dBm, PER 8%, 1024 octets PPDU
--
+  - -
+  - 59
+  - -
+  - dB
+  - 有用信号-74dBm, PER 8%, 1024 octets PPDU
+  -
 * - 5.5Mbps DSSS/CCK
-- -
-- 44
-- -
-- dB
-- 有用信号-70dBm, PER 8%, 1024 octets PPDU
--
+  - -
+  - 44
+  - -
+  - dB
+  - 有用信号-70dBm, PER 8%, 1024 octets PPDU
+  -
 * - 11Mbps DSSS/CCK
-- -
-- 44
-- -
-- dB
-- 有用信号-70dBm, PER 8%, 1024 octets PPDU
--
+  - -
+  - 44
+  - -
+  - dB
+  - 有用信号-70dBm, PER 8%, 1024 octets PPDU
+  -
 * - **WIFI RX 11g 邻道抑制比**
--
--
--
--
--
--
+  -
+  -
+  -
+  -
+  -
+  -
 * - BPSK, R=1/2 (6Mbps OFDM)
-- -
-- 34
-- -
-- dB
-- 有用信号-79dBm, PER 8%, 1000 octets PPDU
--
+  - -
+  - 34
+  - -
+  - dB
+  - 有用信号-79dBm, PER 8%, 1000 octets PPDU
+  -
 * - BPSK, R=3/4 (9Mbps OFDM)
-- -
-- 30
-- -
-- dB
-- 有用信号-78dBm, PER 8%, 1000 octets PPDU
--
+  - -
+  - 30
+  - -
+  - dB
+  - 有用信号-78dBm, PER 8%, 1000 octets PPDU
+  -
 * - QPSK, R=1/2 (12Mbps OFDM)
-- -
-- 31
-- -
-- dB
-- 有用信号-76dBm, PER 8%, 1000 octets PPDU
--
+  - -
+  - 31
+  - -
+  - dB
+  - 有用信号-76dBm, PER 8%, 1000 octets PPDU
+  -
 * - QPSK, R=3/4 (18Mbps OFDM)
-- -
-- 27
-- -
-- dB
-- 有用信号-74dBm, PER 8%, 1000 octets PPDU
--
+  - -
+  - 27
+  - -
+  - dB
+  - 有用信号-74dBm, PER 8%, 1000 octets PPDU
+  -
 * - 16-QAM, R=1/2 (24Mbps OFDM)
-- -
-- 27
-- -
-- dB
-- 有用信号-71dBm, PER 8%, 1000 octets PPDU
--
+  - -
+  - 27
+  - -
+  - dB
+  - 有用信号-71dBm, PER 8%, 1000 octets PPDU
+  -
 * - 16-QAM, R=3/4 (36Mbps OFDM)
-- -
-- 22
-- -
-- dB
-- 有用信号-67dBm, PER 8%, 1000 octets PPDU
--
+  - -
+  - 22
+  - -
+  - dB
+  - 有用信号-67dBm, PER 8%, 1000 octets PPDU
+  -
 * - 16-QAM, R=1/2 (48Mbps OFDM)
-- -
-- 19
-- -
-- dB
-- 有用信号-63dBm, PER 8%, 1000 octets PPDU
--
+  - -
+  - 19
+  - -
+  - dB
+  - 有用信号-63dBm, PER 8%, 1000 octets PPDU
+  -
 * - 64-QAM, R=3/4 (54Mbps OFDM)
-- -
-- 20
-- -
-- dB
-- 有用信号-62dBm, PER 8%, 1000 octets PPDU
--
+  - -
+  - 20
+  - -
+  - dB
+  - 有用信号-62dBm, PER 8%, 1000 octets PPDU
+  -
 * - **WIFI RX 11n HT20 邻道抑制比**
--
--
--
--
--
--
+  -
+  -
+  -
+  -
+  -
+  -
 * - HT20MCS0
-- -
-- 30
-- -
-- dB
-- 有用信号-79dBm,PER 10%, 4096octets PPDU
--
+  - -
+  - 30
+  - -
+  - dB
+  - 有用信号-79dBm,PER 10%, 4096octets PPDU
+  -
 * - HT20MCS1
-- -
-- 29
-- -
-- dB
-- 有用信号-76dBm,PER 10%, 4096octets PPDU
--
+  - -
+  - 29
+  - -
+  - dB
+  - 有用信号-76dBm,PER 10%, 4096octets PPDU
+  -
 * - HT20MCS2
-- -
-- 26
-- -
-- dB
-- 有用信号-74dBm,PER 10%, 4096octets PPDU
--
+  - -
+  - 26
+  - -
+  - dB
+  - 有用信号-74dBm,PER 10%, 4096octets PPDU
+  -
 * - HT20MCS3
-- -
-- 24
-- -
-- dB
-- 有用信号-71dBm,PER 10%, 4096octets PPDU
--
+  - -
+  - 24
+  - -
+  - dB
+  - 有用信号-71dBm,PER 10%, 4096octets PPDU
+  -
 * - HT20MCS4
-- -
-- 19
-- -
-- dB
-- 有用信号-67dBm,PER 10%, 4096octets PPDU
--
+  - -
+  - 19
+  - -
+  - dB
+  - 有用信号-67dBm,PER 10%, 4096octets PPDU
+  -
 * - HT20MCS5
-- -
-- 17
-- -
-- dB
-- 有用信号-63dBm,PER 10%, 4096octets PPDU
--
+  - -
+  - 17
+  - -
+  - dB
+  - 有用信号-63dBm,PER 10%, 4096octets PPDU
+  -
 * - HT20MCS6
-- -
-- 15
-- -
-- dB
-- 有用信号-62dBm,PER 10%, 4096octets PPDU
--
+  - -
+  - 15
+  - -
+  - dB
+  - 有用信号-62dBm,PER 10%, 4096octets PPDU
+  -
 * - HT20MCS7
-- -
-- 13
-- -
-- dB
-- 有用信号-61dBm,PER 10%, 4096octets PPDU
--
+  - -
+  - 13
+  - -
+  - dB
+  - 有用信号-61dBm,PER 10%, 4096octets PPDU
+  -
 * - **WIFI RX 11n HT40 邻道抑制比**
--
--
--
--
--
--
+  -
+  -
+  -
+  -
+  -
+  -
 * - HT40MCS0
-- -
-- 29
-- -
-- dB
-- 有用信号-76dBm,PER 10%, 4096octets PPDU
--
+  - -
+  - 29
+  - -
+  - dB
+  - 有用信号-76dBm,PER 10%, 4096octets PPDU
+  -
 * - HT40MCS1
-- -
-- 27
-- -
-- dB
-- 有用信号-73dBm,PER 10%, 4096octets PPDU
--
+  - -
+  - 27
+  - -
+  - dB
+  - 有用信号-73dBm,PER 10%, 4096octets PPDU
+  -
 * - HT40MCS2
-- -
-- 24
-- -
-- dB
-- 有用信号-71dBm,PER 10%, 4096octets PPDU
--
+  - -
+  - 24
+  - -
+  - dB
+  - 有用信号-71dBm,PER 10%, 4096octets PPDU
+  -
 * - HT40MCS3
-- -
-- 21
-- -
-- dB
-- 有用信号-68dBm,PER 10%, 4096octets PPDU
--
+  - -
+  - 21
+  - -
+  - dB
+  - 有用信号-68dBm,PER 10%, 4096octets PPDU
+  -
 * - HT40 MCS4
-- -
-- 17
-- -
-- dB
-- 有用信号-64dBm, PER 10%, 4096 octets PPDU
--
+  - -
+  - 17
+  - -
+  - dB
+  - 有用信号-64dBm, PER 10%, 4096 octets PPDU
+  -
 * - HT40 MCS5
-- -
-- 13
-- -
-- dB
-- 有用信号-60dBm, PER 10%, 4096 octets PPDU
--
+  - -
+  - 13
+  - -
+  - dB
+  - 有用信号-60dBm, PER 10%, 4096 octets PPDU
+  -
 * - HT40 MCS6
-- -
-- 14
-- -
-- dB
-- 有用信号-59dBm, PER 10%, 4096 octets PPDU
--
+  - -
+  - 14
+  - -
+  - dB
+  - 有用信号-59dBm, PER 10%, 4096 octets PPDU
+  -
 * - HT40 MCS7
-- -
-- 10
-- -
-- dB
-- 有用信号-58dBm, PER 10%, 4096 octets PPDU
--
+  - -
+  - 10
+  - -
+  - dB
+  - 有用信号-58dBm, PER 10%, 4096 octets PPDU
+  -
 * - **WIFI TX 11b 最大发射功率**
--
--
--
--
--
--
+  -
+  -
+  -
+  -
+  -
+  -
 * - 1Mbps DSSS
-- -
-- 23
-- -
-- dBm
--
--
+  - -
+  - 23
+  - -
+  - dBm
+  -
+  -
 * - 2Mbps DSSS
-- -
-- 23
-- -
-- dBm
--
--
+  - -
+  - 23
+  - -
+  - dBm
+  -
+  -
 * - 5.5Mbps DSSS/CCK
-- -
-- 23
-- -
-- dBm
--
--
+  - -
+  - 23
+  - -
+  - dBm
+  -
+  -
 * - 11Mbps DSSS/CCK
-- -
-- 23
-- -
-- dBm
--
--
+  - -
+  - 23
+  - -
+  - dBm
+  -
+  -
 * - **WIFI TX 11g 最大发射功率**
--
--
--
--
--
--
+  -
+  -
+  -
+  -
+  -
+  -
 * - BPSK, R=1/2 (6Mbps OFDM)
-- -
-- 21
-- -
-- dBm
--
--
+  - -
+  - 21
+  - -
+  - dBm
+  -
+  -
 * - BPSK, R=3/4 (9Mbps OFDM)
-- -
-- 21
-- -
-- dBm
--
--
+  - -
+  - 21
+  - -
+  - dBm
+  -
+  -
 * - QPSK, R=1/2 (12Mbps OFDM)
-- -
-- 21
-- -
-- dBm
--
--
+  - -
+  - 21
+  - -
+  - dBm
+  -
+  -
 * - QPSK, R=3/4 (18Mbps OFDM)
-- -
-- 21
-- -
-- dBm
--
--
+  - -
+  - 21
+  - -
+  - dBm
+  -
+  -
 * - 16-QAM, R=1/2 (24Mbps OFDM)
-- -
-- 21
-- -
-- dBm
--
--
+  - -
+  - 21
+  - -
+  - dBm
+  -
+  -
 * - 16-QAM, R=3/4 (36Mbps OFDM)
-- -
-- 21
-- -
-- dBm
--
--
+  - -
+  - 21
+  - -
+  - dBm
+  -
+  -
 * - 16-QAM, R=1/2 (48Mbps OFDM)
-- -
-- 20
-- -
-- dBm
--
--
+  - -
+  - 20
+  - -
+  - dBm
+  -
+  -
 * - 64-QAM, R=3/4 (54Mbps OFDM)
-- -
-- 19
-- -
-- dBm
--
--
+  - -
+  - 19
+  - -
+  - dBm
+  -
+  -
 * - **WIFI TX HT20-MF 最大发射功率**
--
--
--
--
--
--
+  -
+  -
+  -
+  -
+  -
+  -
 * - MCS0
-- -
-- 20
-- -
-- dBm
--
--
+  - -
+  - 20
+  - -
+  - dBm
+  -
+  -
 * - MCS1
-- -
-- 20
-- -
-- dBm
--
--
+  - -
+  - 20
+  - -
+  - dBm
+  -
+  -
 * - MCS2
-- -
-- 20
-- -
-- dBm
--
--
+  - -
+  - 20
+  - -
+  - dBm
+  -
+  -
 * - MCS3
-- -
-- 19
-- -
-- dBm
--
--
+  - -
+  - 19
+  - -
+  - dBm
+  -
+  -
 * - MCS4
-- -
-- 19
-- -
-- dBm
--
--
+  - -
+  - 19
+  - -
+  - dBm
+  -
+  -
 * - MCS5
-- -
-- 19
-- -
-- dBm
--
--
+  - -
+  - 19
+  - -
+  - dBm
+  -
+  -
 * - MCS6
-- -
-- 19
-- -
-- dBm
--
--
+  - -
+  - 19
+  - -
+  - dBm
+  -
+  -
 * - MCS7
-- -
-- 18
-- -
-- dBm
--
--
+  - -
+  - 18
+  - -
+  - dBm
+  -
+  -
 * - **WIFI TX HT40-MF 最大发射功率**
--
--
--
--
--
--
+  -
+  -
+  -
+  -
+  -
+  -
 * - MCS0
-- -
-- 20
-- -
-- dBm
--
--
+  - -
+  - 20
+  - -
+  - dBm
+  -
+  -
 * - MCS1
-- -
-- 20
-- -
-- dBm
--
--
+  - -
+  - 20
+  - -
+  - dBm
+  -
+  -
 * - MCS2
-- -
-- 20
-- -
-- dBm
--
--
+  - -
+  - 20
+  - -
+  - dBm
+  -
+  -
 * - MCS3
-- -
-- 19
-- -
-- dBm
--
--
+  - -
+  - 19
+  - -
+  - dBm
+  -
+  -
 * - MCS4
-- -
-- 19
-- -
-- dBm
--
--
+  - -
+  - 19
+  - -
+  - dBm
+  -
+  -
 * - **HE20 最大发射功率**
--
--
--
--
--
--
+  -
+  -
+  -
+  -
+  -
+  -
 * - MCS1
-- -
-- 20
-- -
-- dBm
--
--
+  - -
+  - 20
+  - -
+  - dBm
+  -
+  -
 * - MCS2
-- -
-- 20
-- -
-- dBm
--
--
+  - -
+  - 20
+  - -
+  - dBm
+  -
+  -
 * - MCS3
-- -
-- 19
-- -
-- dBm
--
--
+  - -
+  - 19
+  - -
+  - dBm
+  -
+  -
 * - MCS4
-- -
-- 19
-- -
-- dBm
--
--
+  - -
+  - 19
+  - -
+  - dBm
+  -
+  -
 * - MCS5
-- -
-- 19
-- -
-- dBm
--
--
+  - -
+  - 19
+  - -
+  - dBm
+  -
+  -
 * - MCS6
-- -
-- 19
-- -
-- dBm
--
--
+  - -
+  - 19
+  - -
+  - dBm
+  -
+  -
 * - MCS7
-- -
-- 18
-- -
-- dBm
--
--
+  - -
+  - 18
+  - -
+  - dBm
+  -
+  -
 * - MCS8
-- -
-- 17
-- -
-- dBm
--
--
+  - -
+  - 17
+  - -
+  - dBm
+  -
+  -
 * - MCS9
-- -
-- 15
-- -
-- dBm
--
--
+  - -
+  - 15
+  - -
+  - dBm
+  -
+  -
 * - **LE RX 灵敏度**
--
--
--
--
--
--
+  -
+  -
+  -
+  -
+  -
+  -
 * - LE 1M
-- -
-- -99
-- -98
-- dBm
--
--
+  - -
+  - -99
+  - -98
+  - dBm
+  -
+  -
 * - LE 2M
-- -
-- -96
-- -95
-- dBm
--
--
+  - -
+  - -96
+  - -95
+  - dBm
+  -
+  -
 * - LR S2 255byte
-- -
-- -100
-- -99
-- dBm
--
--
+  - -
+  - -100
+  - -99
+  - dBm
+  -
+  -
 * - LR S8 255byte
-- -
-- -105
-- -103
-- dBm
--
--
+  - -
+  - -105
+  - -103
+  - dBm
+  -
+  -
 * - LR S2 37byte
-- -
-- -101
-- -100
-- dBm
--
--
+  - -
+  - -101
+  - -100
+  - dBm
+  -
+  -
 * - LR S8 37byte
-- -
-- -105
-- -104
-- dBm
--
--
+  - -
+  - -105
+  - -104
+  - dBm
+  -
+  -
 * - **SLE RX 灵敏度**
--
--
--
--
--
--
+  -
+  -
+  -
+  -
+  -
+  -
 * - SLE_1M GFSK
-- -
-- -99
-- -97
-- dBm
--
--
+  - -
+  - -99
+  - -97
+  - dBm
+  -
+  -
 * - SLE_2M GFSK
-- -
-- -96
-- -94
-- dBm
--
--
+  - -
+  - -96
+  - -94
+  - dBm
+  -
+  -
 * - SLE_4M GFSK
-- -
-- -93
-- -91
-- dBm
--
--
+  - -
+  - -93
+  - -91
+  - dBm
+  -
+  -
 * - 1M QPSK shortHD pilot16:1 polar3/4
-- -
-- -101
-- -100
-- dBm
--
--
+  - -
+  - -101
+  - -100
+  - dBm
+  -
+  -
 * - 2M QPSK shortHD pilot16:1 polar3/4
-- -
-- -98
-- -96
-- dBm
--
--
+  - -
+  - -98
+  - -96
+  - dBm
+  -
+  -
 * - 4M QPSK shortHDpilot16:1polar3/4
-- -
-- -95
-- -93
-- dBm
--
--
+  - -
+  - -95
+  - -93
+  - dBm
+  -
+  -
 * - 1M 8PSKshortHDPilot16:1polar3/4
-- -
-- -96
-- -94
-- dBm
--
--
+  - -
+  - -96
+  - -94
+  - dBm
+  -
+  -
 * - 2M 8PSKshortHDPilot16:1polar3/4
-- -
-- -93
-- -91
-- dBm
--
--
+  - -
+  - -93
+  - -91
+  - dBm
+  -
+  -
 * - 4M 8PSKshortHDPilot16:1polar3/4
-- -
-- -90
-- -88
-- dBm
--
--
+  - -
+  - -90
+  - -88
+  - dBm
+  -
+  -
 * - 1M QPSKshortHDPilot_nopolar1/1
-- -
-- -96
-- -94
-- dBm
--
--
+  - -
+  - -96
+  - -94
+  - dBm
+  -
+  -
 * - 2M QPSKshortHDPilot_nopolar1/1
-- -
-- -93
-- -92
-- dBm
--
--
+  - -
+  - -93
+  - -92
+  - dBm
+  -
+  -
 * - 4M QPSKshortHDPilot_nopolar1/1
-- -
-- -89
-- -88
-- dBm
--
--
+  - -
+  - -89
+  - -88
+  - dBm
+  -
+  -
 * - 1M 8PSKshortHDPilot_nopolar1/1
-- -
-- -90
-- -88
-- dBm
--
--
+  - -
+  - -90
+  - -88
+  - dBm
+  -
+  -
 * - 2M 8PSKshortHDPilot_nopolar1/1
-- -
-- -87
-- -86
-- dBm
--
--
+  - -
+  - -87
+  - -86
+  - dBm
+  -
+  -
 * - 4M 8PSKshortHDPilot_nopolar1/1
-- -
-- -82
-- -81
-- dBm
--
--
+  - -
+  - -82
+  - -81
+  - dBm
+  -
+  -
 * - **LE TX 最大发射功率**
--
--
--
--
--
--
+  -
+  -
+  -
+  -
+  -
+  -
 * - LE 1M
-- -
-- 20
-- -
-- dBm
--
--
+  - -
+  - 20
+  - -
+  - dBm
+  -
+  -
 * - LE 2M
-- -
-- 20
-- -
-- dBm
--
--
+  - -
+  - 20
+  - -
+  - dBm
+  -
+  -
 * - LR S2500K
-- -
-- 20
-- -
-- dBm
--
--
+  - -
+  - 20
+  - -
+  - dBm
+  -
+  -
 * -
-- LR S8125K
-- -
-- 20
-- -
-- dBm
--
+  - LR S8125K
+  - -
+  - 20
+  - -
+  - dBm
+  -
 * - **SLE TX 最大发射功率**
--
--
--
--
--
--
+  -
+  -
+  -
+  -
+  -
+  -
 * - SLE_1MGFSK
-- -
-- 20
-- -
-- dBm
--
--
+  - -
+  - 20
+  - -
+  - dBm
+  -
+  -
 * - SLE_2MGFSK
-- -
-- 20
-- -
-- dBm
--
--
+  - -
+  - 20
+  - -
+  - dBm
+  -
+  -
 * - SLE_4MGFSK
-- -
-- 20
-- -
-- dBm
--
--
+  - -
+  - 20
+  - -
+  - dBm
+  -
+  -
 * - 1M QPSKshortHDPilot16:1polar3/4
-- -
-- 14
-- -
-- dBm
--
--
+  - -
+  - 14
+  - -
+  - dBm
+  -
+  -
 * - 2M QPSKshortHDPilot16:1polar3/4
-- -
-- 14
-- -
-- dBm
--
--
+  - -
+  - 14
+  - -
+  - dBm
+  -
+  -
 * - 4M QPSKshortHDPilot16:1polar3/4
-- -
-- 14
-- -
-- dBm
--
--
+  - -
+  - 14
+  - -
+  - dBm
+  -
+  -
 * - 1M 8PSKshortHDPilot16:1polar3/4
-- -
-- 14
-- -
-- dBm
--
--
+  - -
+  - 14
+  - -
+  - dBm
+  -
+  -
 * - 2M 8PSKshortHDPilot16:1polar3/4
-- -
-- 14
-- -
-- dBm
--
--
+  - -
+  - 14
+  - -
+  - dBm
+  -
+  -
 * - 4M 8PSKshortHDPilot16:1polar3/4
-- -
-- 14
-- -
-- dBm
--
--
+  - -
+  - 14
+  - -
+  - dBm
+  -
+  -
 * - 1M QPSKshortHDPilot_no polar1/1
-- -
-- 14
-- -
-- dBm
--
--
+  - -
+  - 14
+  - -
+  - dBm
+  -
+  -
 * - 2M QPSKshortHDPilot_nopolar1/1
-- -
-- 14
-- -
-- dBm
--
--
+  - -
+  - 14
+  - -
+  - dBm
+  -
+  -
 * - 4M QPSK shortHD pilot_no polar1/1
-- -
-- 14
-- -
-- dBm
--
--
+  - -
+  - 14
+  - -
+  - dBm
+  -
+  -
 * - 1M 8PSK shortHD pilot_no polar1/1
-- -
-- 14
-- -
-- dBm
--
--
+  - -
+  - 14
+  - -
+  - dBm
+  -
+  -
 * - 2M 8PSK shortHD pilot_no polar1/1
-- -
-- 14
-- -
-- dBm
--
--
+  - -
+  - 14
+  - -
+  - dBm
+  -
+  -
 * - 4M 8PSK shortHD pilot_no polar1/1
-- -
-- 14
-- -
-- dBm
--
--
+  - -
+  - 14
+  - -
+  - dBm
+  -
+  -
 * - TX 输出功率精度
-- -
-- -2
-- -
-- 2
-- dB
-- -
+  - -
+  - -2
+  - -
+  - 2
+  - dB
+  - -
 * - TX 输出功率分辨率
-- -
-- -
-- 1
-- -
-- dB
-- BT 只能发送固定功率
+  - -
+  - -
+  - 1
+  - -
+  - dB
+  - BT 只能发送固定功率
 ```
 
 ### 说明
@@ -1424,87 +1424,87 @@ BLE 主要特性如表 4-1 所示。
 :class: longtable
 
 * - 标题
-- 描述
+  - 描述
 * - 蓝牙协议版本
-- 支持蓝牙核心规范 5.4。
+  - 支持蓝牙核心规范 5.4。
 * - 蓝牙模式
-- 仅支持 Low Energy only。
+  - 仅支持 Low Energy only。
 * - BT4.0 特性
-- 支持蓝牙规范 4.0 特性。
+  - 支持蓝牙规范 4.0 特性。
 * - Low Energy Physical
-- Low Energy Physical Layer。
+  - Low Energy Physical Layer。
 * - Low Energy Link
-- Low Energy Link Layer。
+  - Low Energy Link Layer。
 * - Enhancements to HCI for Low Energy
-- 支持 BLE 模式相关的 HCI 功能。
+  - 支持 BLE 模式相关的 HCI 功能。
 * - Low Energy Direct Test Mode
-- 支持 BLE 直接测试模式。
+  - 支持 BLE 直接测试模式。
 * - AES Encryption
-- 支持对数据包进行 AES 加解密。
+  - 支持对数据包进行 AES 加解密。
 * - BT4.1 特性
-- 支持蓝牙规范 4.1 特性。
+  - 支持蓝牙规范 4.1 特性。
 * - Low duty cycle directed advertising
-- 支持低占空比定向广播。
+  - 支持低占空比定向广播。
 * - LE Dual mode topology
-- BLE 设备可同时为 master 和 Slave。
+  - BLE 设备可同时为 master 和 Slave。
 * - Fast Advertising interval
-- 支持高占空比定向广播。
+  - 支持高占空比定向广播。
 * - LE privacy v1.1
-- 支持 LE 隐私策略 v1.1。
+  - 支持 LE 隐私策略 v1.1。
 * - LE Ping
-- 支持 LE Ping 功能。
+  - 支持 LE Ping 功能。
 * - Private address changes
-- 支持私有地址变更功能。
+  - 支持私有地址变更功能。
 * - BT4.2 特性
-- 支持蓝牙规范 4.2 特性。
+  - 支持蓝牙规范 4.2 特性。
 * - LE Data Packet Length Extension
-- 支持数据包长度扩展,最大可支持 250Byte。
+  - 支持数据包长度扩展,最大可支持 250Byte。
 * - LE Secure Connections
-- 支持低功耗蓝牙安全连接。
+  - 支持低功耗蓝牙安全连接。
 * - Link Layer privacy
-- 支持低功耗蓝牙链路层隐私策略。
+  - 支持低功耗蓝牙链路层隐私策略。
 * - Link Layer Extended Scanner Filter policies
-- 支持扩展扫描过滤机制。
+  - 支持扩展扫描过滤机制。
 * - BT5.0 特性
-- 支持蓝牙规范 5.0 特性。
+  - 支持蓝牙规范 5.0 特性。
 * - 2 Msym/s PHY for LE
-- 支持 2M 传输速率。
+  - 支持 2M 传输速率。
 * - LE Channel Selection Algorithm #2
-- 支持自适应跳频算法 2。
+  - 支持自适应跳频算法 2。
 * - High Duty Cycle Non-Connectable Advertising
-- 支持高占空比非连接广播。
+  - 支持高占空比非连接广播。
 * - LE Long Range
-- 支持 BLE Long Range。
+  - 支持 BLE Long Range。
 * - BT5.2 特性
-- 支持蓝牙规范 5.2 特性。
+  - 支持蓝牙规范 5.2 特性。
 * - BLE Power Control
-- 支持功率控制功能。
+  - 支持功率控制功能。
 * - 连接个数
-- 支持 4 条 BLE 连接(可选 8 条)。
+  - 支持 4 条 BLE 连接(可选 8 条)。
 * - BLE dual mode
-- BLE 设备支持的角色。
+  - BLE 设备支持的角色。
 * - Master
-- 支持 LE 的 Master role。
+  - 支持 LE 的 Master role。
 * - Slave
-- 支持 LE 的 Slave Role。
+  - 支持 LE 的 Slave Role。
 * - PHY Update
-- 支持选择 PHY 信道。
+  - 支持选择 PHY 信道。
 * - Data Length Update
-- 支持选择数据包的长度。
+  - 支持选择数据包的长度。
 * - 白名单个数
-- 白名单个数最大支持 8 条。
+  - 白名单个数最大支持 8 条。
 * - BLE RPA 列表
-- Device 能支持的最大的 BLE RPA 名单数目到 4 个。
+  - Device 能支持的最大的 BLE RPA 名单数目到 4 个。
 * - RPA 功能
-- 支持私有可解析地址功能。广播、扫描、Init 支持 RPA 功能。
+  - 支持私有可解析地址功能。广播、扫描、Init 支持 RPA 功能。
 * - RPA 名单个数
-- 最大支持 4 条 RPA 条目。
+  - 最大支持 4 条 RPA 条目。
 * - 快速信道干扰检测
-- 支持业务间隙扫描蓝牙信道所有频点,以判断空口的干扰程度。
+  - 支持业务间隙扫描蓝牙信道所有频点,以判断空口的干扰程度。
 * - Channel map update
-- 支持信道位图更新功能。
+  - 支持信道位图更新功能。
 * - 信道扫描
-- 支持扫描所有的蓝牙信道,根据扫描结果评估信道干扰程度。
+  - 支持扫描所有的蓝牙信道,根据扫描结果评估信道干扰程度。
 ```
 
 SLE 主要特性如表 4-2 所示。
@@ -1516,31 +1516,31 @@ SLE 主要特性如表 4-2 所示。
 :class: longtable
 
 * - 标题
-- 描述
+  - 描述
 * - SLE 协议 1.0
-- 支持 SLE1.0 协议核心规范内容。
+  - 支持 SLE1.0 协议核心规范内容。
 * - SLE 链路管理
-- 支持 SLE 链路管理。
+  - 支持 SLE 链路管理。
 * - 时隙调度
-- 支持系统基础时隙按 125μs 调度。
+  - 支持系统基础时隙按 125μs 调度。
 * - SLE 广播业务
-- 支持 SLE 广播链路业务。
+  - 支持 SLE 广播链路业务。
 * - Channel Scan 业务
-- 支持对通信信道进行扫描,上报信道 rssi。
+  - 支持对通信信道进行扫描,上报信道 rssi。
 * - SLE 帧格式
-- 支持 SLE1.0 协议无线帧类型。支持 SLE1.0 协议无线帧类型 1。支持 SLE1.0 协议无线帧类型 2。
+  - 支持 SLE1.0 协议无线帧类型。支持 SLE1.0 协议无线帧类型 1。支持 SLE1.0 协议无线帧类型 2。
 * - 白名单个数
-- 白名单个数最大支持 8 条。
+  - 白名单个数最大支持 8 条。
 * - SLE 调制模式和物理层带宽
-- 支持调制解调带宽 1M/2M/4M 三种速率。支持 SLE 调制方式 GFSK-1M/GFSK-2M/GFSK-4M 三种速率。支持 QPSK 调制方式 QPSK-1M/QPSK-2M/QPSK-4M 三种速率。支持 8PSK 调制方式 8PSK-1M/8PSK-2M/8PSK-4M 三种速率。
+  - 支持调制解调带宽 1M/2M/4M 三种速率。支持 SLE 调制方式 GFSK-1M/GFSK-2M/GFSK-4M 三种速率。支持 QPSK 调制方式 QPSK-1M/QPSK-2M/QPSK-4M 三种速率。支持 8PSK 调制方式 8PSK-1M/8PSK-2M/8PSK-4M 三种速率。
 * - SLE 码率
-- 支持帧类型 2 下,QPSK 调制 Polar 码率为 3/4。支持帧类型 2 下,8PSK 调制 Polar 码率为 3/4、1。
+  - 支持帧类型 2 下,QPSK 调制 Polar 码率为 3/4。支持帧类型 2 下,8PSK 调制 Polar 码率为 3/4、1。
 * - SLE 导频插值比例
-- 支持帧类型 2 下,数据信息符号导频比为 4:1、16:1。
+  - 支持帧类型 2 下,数据信息符号导频比为 4:1、16:1。
 * - 信道干扰检测
-- 支持信道扫描业务进行干扰检测。
+  - 支持信道扫描业务进行干扰检测。
 * - 连接个数
-- 支持默认最大支持 4 条 SLE link(可选 8 条,与 BLE 共享连接数)。
+  - 支持默认最大支持 4 条 SLE link(可选 8 条,与 BLE 共享连接数)。
 ```
 
 ### 工作方式

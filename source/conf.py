@@ -35,7 +35,7 @@ myst_heading_anchors = 4
 myst_title_to_header = True
 
 # Suppress warnings for unknown mime types
-myst_fence_as_directive = ["mermaid"]
+myst_fence_as_directive = ["mermaid", "list-table"]
 
 # Source settings
 source_suffix = {
