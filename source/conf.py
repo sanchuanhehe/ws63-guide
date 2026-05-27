@@ -174,3 +174,21 @@ gettext_compact = False
 
 # -- MyST specific -----------------------------------------------------------
 myst_url_schemes = ("http", "https", "mailto")
+
+# -- Copy Markdown source alongside HTML for AI/crawler access ---------------
+def setup(app):
+    from pathlib import Path
+    import shutil
+
+    def copy_md_sources(app, exception):
+        if exception or app.builder.name != 'html':
+            return
+        outdir = Path(app.outdir)
+        srcdir = Path(app.srcdir)
+        for md_file in srcdir.rglob('*.md'):
+            rel = md_file.relative_to(srcdir)
+            dest = outdir / rel
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(md_file, dest)
+
+    app.connect('build-finished', copy_md_sources)
