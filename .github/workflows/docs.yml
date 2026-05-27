@@ -22,7 +22,7 @@ jobs:
       - uses: astral-sh/setup-uv@v6
       - run: uv sync --locked
       - name: Build HTML
-        run: uv run sphinx-build -b html -c source source _build/html
+        run: uv run sphinx-build -b html source _build/html -c source
       - uses: actions/upload-artifact@v4
         with:
           name: html
@@ -54,7 +54,7 @@ jobs:
             texlive-latex-extra
       - run: uv sync --locked
       - name: Build LaTeX PDF
-        run: uv run sphinx-build -M latexpdf -c source source _build/pdf
+        run: uv run sphinx-build -M latexpdf source _build/pdf
       - uses: actions/upload-artifact@v4
         with:
           name: pdf
