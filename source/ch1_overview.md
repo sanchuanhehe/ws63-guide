@@ -120,9 +120,10 @@ Sparklink Wireless Communication Low Enery Air-interface Technical Requirements 
 
 Q353333N1100 系列芯片逻辑框图如图 1-1 所示。
 
-图1-1 Q353333N1100 系列芯片逻辑框图
-
-![image](images/fig-1-1-chip-block-diagram.jpg)
+```{figure} images/fig-1-1-chip-block-diagram.jpg
+:name: fig-1-1
+Q353333N1100 系列芯片逻辑框图
+```
 
 其中，图中的各模块功能描述如表 1-1 所示。
 
@@ -130,7 +131,6 @@ Q353333N1100 系列芯片逻辑框图如图 1-1 所示。
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - 模块名
   - 功能描述
@@ -214,6 +214,7 @@ Q353333N1100 系列芯片逻辑框图如图 1-1 所示。
 
 Q353333N1100 系列芯片适应于智能家电等物联网智能终端领域，典型应用框图如图 1-2 所示。
 
-图1-2 Q353333N1100 系列芯片典型应用框图
-
-![Q353333N1100 系列芯片典型应用框图](images/fig-1-2-typical-application.jpg)
+```{figure} images/fig-1-2-typical-application.jpg
+:name: fig-1-2
+Q353333N1100 系列芯片典型应用框图
+```

@@ -6,9 +6,10 @@
 
 SFC 是一个 SPI Flash 控制器。业务侧提供一个 AHB（Advanced High Performance Bus） Slave 接口，主要完成 AHB 通道对 SPI Flash 的访问控制功能；提供一个 AHB Master 接口，用于 DMA 方式读写 Flash。
 
-图3-1 SFC 应用框图
-
-![image](images/fig-3-1-sfc-block-diagram.jpg)
+```{figure} images/fig-3-1-sfc-block-diagram.jpg
+:name: fig-3-1
+SFC 应用框图
+```
 
 注：IF（Interface）。
 
@@ -18,7 +19,7 @@ SFC 是一个 SPI Flash 控制器。业务侧提供一个 AHB（Advanced High Pe
 
 AHB Slave 接口具有以下特点：
 
- 提供一个 AHB Slave 接口，可以根据不同的选择信号访问内部配置寄存器或直接 访问 SPI Flash Memory。
+-  提供一个 AHB Slave 接口，可以根据不同的选择信号访问内部配置寄存器或直接 访问 SPI Flash Memory。
 
 支持 AMBA2.0 协议。
 
@@ -28,7 +29,7 @@ AHB Slave 接口具有以下特点：
 
 AHB Master 接口具有以下特点：
 
- 提供一个 AHB Master 接口，用于 DMA 方式在内存和 Flash 之间搬运数据。
+-  提供一个 AHB Master 接口，用于 DMA 方式在内存和 Flash 之间搬运数据。
 
 支持 AMBA2.0 协议。
 
@@ -80,7 +81,7 @@ Flash 数据在线解密具有以下特点：
 
 此方式直接控制需要发送的 Flash 命令。
 
- 通过 AHB Slave 接口以类似读写普通 Memory 的方式读写 Flash。 SFC 模块会自动将 AHB 总线的读写操作时序映射为 SPI Flash 读写命令。
+-  通过 AHB Slave 接口以类似读写普通 Memory 的方式读写 Flash。 SFC 模块会自动将 AHB 总线的读写操作时序映射为 SPI Flash 读写命令。
 
 通过 DMA 方式在 Flash 和外部 Memory 之间搬移数据。
 
@@ -118,23 +119,25 @@ Flash 数据在线解密具有以下特点：
 
 通过寄存器读取 Flash 的操作流程（查询方式），如图 3-2 所示。
 
-图3-2 通过寄存器读取 Flash 的操作流程（查询方式）
-
-![image](images/fig-3-2-sfc-reg-read-flow.jpg)
+```{figure} images/fig-3-2-sfc-reg-read-flow.jpg
+:name: fig-3-2
+通过寄存器读取 Flash 的操作流程（查询方式）
+```
 
 ### 通过寄存器方式写 Flash 操作流程
 
 ### 须知
 
- 通过寄存器方式写 Flash 数据时，总线和 DMA 不得访问 Flash。
+-  通过寄存器方式写 Flash 数据时，总线和 DMA 不得访问 Flash。
 
- 单次写 Flash 不能跨越 Page 边界（寄存器写方式没有跨越 Page 边界保护，需要 软件保证，如果跨越 256Byte 边界，将会 Wrap 到该 Page 的起始地址，覆盖原来 的内容）。
+-  单次写 Flash 不能跨越 Page 边界（寄存器写方式没有跨越 Page 边界保护，需要 软件保证，如果跨越 256Byte 边界，将会 Wrap 到该 Page 的起始地址，覆盖原来 的内容）。
 
 通过寄存器写 Flash 的操作流程（中断方式），如图 3-3 所示。
 
-图3-3 通过寄存器写 Flash 的操作流程（中断方式）
-
-![image](images/fig-3-3-sfc-reg-write-flow.jpg)
+```{figure} images/fig-3-3-sfc-reg-write-flow.jpg
+:name: fig-3-3
+通过寄存器写 Flash 的操作流程（中断方式）
+```
 
 注：WREN（Write Read Enable），PP（Page Program），RDSR（Read Status Register）。
 
@@ -142,9 +145,10 @@ Flash 数据在线解密具有以下特点：
 
 通过寄存器方式其他操作流程如图 3-4 所示。
 
-图3-4 通过寄存器方式其他操作流程
-
-![image](images/fig-3-4-sfc-other-op-flow.jpg)
+```{figure} images/fig-3-4-sfc-other-op-flow.jpg
+:name: fig-3-4
+通过寄存器方式其他操作流程
+```
 
 ### 说明
 
@@ -174,11 +178,11 @@ DMA 操作流程如下：
 
 ### 说明
 
- DMA 操作时可以同时 Flash 寄存器读命令操作。
+-  DMA 操作时可以同时 Flash 寄存器读命令操作。
 
- DMA 操作时可以同时通过 AHB Slave 直接访问 Flash，但需保证中间不修改总线操作相关 配置。
+-  DMA 操作时可以同时通过 AHB Slave 直接访问 Flash，但需保证中间不修改总线操作相关 配置。
 
- DMA 操作时需要保证首地址 4Byte 对齐。
+-  DMA 操作时需要保证首地址 4Byte 对齐。
 
  
 
@@ -190,7 +194,6 @@ SFC 寄存器概览如表 3-1 所示。
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - 偏移地址
   - 名称
@@ -300,17 +303,10 @@ SFC 寄存器偏移地址中变量的取值范围和含义如表 3-2 所示。
 
 表3-2SFC寄存器偏移地址变量表
 
-```{list-table}
-:header-rows: 1
-:class: longtable
+| 变量名称 | 取值范围 | 描述 |
+| --- | --- | --- |
+| n | 0~3 | FLASH 解密地址的区间个数。 |
 
-* - 变量名称
-  - 取值范围
-  - 描述
-* - n
-  - 0~3
-  - FLASH 解密地址的区间个数。
-```
 
 ## 寄存器描述
 
@@ -318,11 +314,10 @@ GLOBAL_CONFIG
 
 GLOBAL_CONFIG 为全局配置寄存器。
 
-Offset Address：0x0100 Total Reset Value：0x0000_0000
+Offset Address: 0x0100 Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -360,11 +355,10 @@ Offset Address：0x0100 Total Reset Value：0x0000_0000
 
 TIMING 为 Timing 配置寄存器。
 
-Offset Address：0x0110 Total Reset Value：0x0000_660F
+Offset Address: 0x0110 Total Reset Value: 0x0000_660F
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -407,11 +401,10 @@ Offset Address：0x0110 Total Reset Value：0x0000_660F
 
 INT_RAW_STATUS 为中断原始状态寄存器。
 
-Offset Address：0x0120 Total Reset Value：0x0000_0000
+Offset Address: 0x0120 Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -439,11 +432,10 @@ Offset Address：0x0120 Total Reset Value：0x0000_0000
 
 INT_STATUS 为经过屏蔽处理的中断状态寄存器。
 
-Offset Address：0x0124 Total Reset Value：0x0000_0000
+Offset Address: 0x0124 Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -471,11 +463,10 @@ Offset Address：0x0124 Total Reset Value：0x0000_0000
 
 INT_MASK 为中断屏蔽寄存器。
 
-Offset Address：0x0128 Total Reset Value：0x0000_0000
+Offset Address: 0x0128 Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -503,11 +494,10 @@ Offset Address：0x0128 Total Reset Value：0x0000_0000
 
 INT_CLEAR 为中断清除寄存器。
 
-Offset Address：0x012C Total Reset Value：0x0000_0000
+Offset Address: 0x012C Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -535,11 +525,10 @@ Offset Address：0x012C Total Reset Value：0x0000_0000
 
 SOFT_RST_MASK 为软复位寄存器屏蔽位
 
-Offset Address：0x0130 Total Reset Value：0x0000_0001
+Offset Address: 0x0130 Total Reset Value: 0x0000_0001
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -562,11 +551,10 @@ Offset Address：0x0130 Total Reset Value：0x0000_0001
 
 BUS_CONFIG1 为总线操作方式配置 1 寄存器。
 
-Offset Address：0x0200 Total Reset Value：0x8080_0300
+Offset Address: 0x0200 Total Reset Value: 0x8080_0300
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -624,11 +612,10 @@ Offset Address：0x0200 Total Reset Value：0x8080_0300
 
 BUS_CONFIG2 为总线操作方式配置 2 寄存器。
 
-Offset Address：0x0204 Total Reset Value：0x0000_0000
+Offset Address: 0x0204 Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -651,11 +638,10 @@ Offset Address：0x0204 Total Reset Value：0x0000_0000
 
 BUS_DMA_CTRL 为 DMA 操作控制寄存器。
 
-Offset Address：0x0240 Total Reset Value：0x0000_0000
+Offset Address: 0x0240 Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -693,11 +679,10 @@ Offset Address：0x0240 Total Reset Value：0x0000_0000
 
 BUS_DMA_MEM_SADDR 为 DMA 操作芯片内存起始地址寄存器。
 
-Offset Address：0x0244 Total Reset Value：0x0000_0000
+Offset Address: 0x0244 Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -715,11 +700,10 @@ Offset Address：0x0244 Total Reset Value：0x0000_0000
 
 BUS_DMA_FLASH_SADDR 为 DMA 操作 Flash 起始地址寄存器。
 
-Offset Address：0x0248 Total Reset Value：0x0000_0000
+Offset Address: 0x0248 Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -737,11 +721,10 @@ Offset Address：0x0248 Total Reset Value：0x0000_0000
 
 BUS_DMA_LEN 为 DMA 操作搬运数据长度寄存器。
 
-Offset Address：0x024C Total Reset Value：0x0000_0000
+Offset Address: 0x024C Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -764,11 +747,10 @@ Offset Address：0x024C Total Reset Value：0x0000_0000
 
 BUS_DMA_AHB_CTRL 为 DMA 操作 AHB 时 burst 操作方式选择控制寄存器。
 
-Offset Address：0x0250 Total Reset Value：0x0000_0007
+Offset Address: 0x0250 Total Reset Value: 0x0000_0007
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -801,11 +783,10 @@ Offset Address：0x0250 Total Reset Value：0x0000_0007
 
 CMD_CONFIG 为命令操作方式配置寄存器。
 
-Offset Address：0x0300 Total Reset Value：0x0000_7E00
+Offset Address: 0x0300 Total Reset Value: 0x0000_7E00
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -873,11 +854,10 @@ Offset Address：0x0300 Total Reset Value：0x0000_7E00
 
 CMD_INS 为命令操作方式指令寄存器。
 
-Offset Address：0x0308 Total Reset Value：0x0000_0000
+Offset Address: 0x0308 Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -900,11 +880,10 @@ Offset Address：0x0308 Total Reset Value：0x0000_0000
 
 CMD_ADDR 为命令操作方式地址寄存器。
 
-Offset Address：0x030C Total Reset Value：0x0000_0000
+Offset Address: 0x030C Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -927,11 +906,10 @@ Offset Address：0x030C Total Reset Value：0x0000_0000
 
 CMD_DATABUF_N 为命令操作方式数据 Buffer 寄存器。
 
-Offset Address：0x0400＋4×n Total Reset Value：0x0000_0000
+Offset Address: 0x0400＋4×n Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -949,11 +927,10 @@ Offset Address：0x0400＋4×n Total Reset Value：0x0000_0000
 
 APC_CFG_START_ADDR 为 FAPC 鉴权。
 
-Offset Address：0x1000＋4×n Total Reset Value：0x0000_0000
+Offset Address: 0x1000＋4×n Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -976,11 +953,10 @@ Offset Address：0x1000＋4×n Total Reset Value：0x0000_0000
 
 APC_CFG_END_ADDR 为 FAPC 鉴权。
 
-Offset Address：0x1040＋4×n Total Reset Value：0x0000_0000
+Offset Address: 0x1040＋4×n Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -1003,11 +979,10 @@ Offset Address：0x1040＋4×n Total Reset Value：0x0000_0000
 
 SFC_FAPC_DEC_AUTH_CFG 为 FAPC 鉴权。
 
-Offset Address：0x1180 Total Reset Value：0x0000_0000
+Offset Address: 0x1180 Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -1025,11 +1000,10 @@ Offset Address：0x1180 Total Reset Value：0x0000_0000
 
 SFC_FAPC_SADDR_STATUS 为 FAPC 鉴权。
 
-Offset Address：0x1200 Total Reset Value：0x0000_0000
+Offset Address: 0x1200 Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -1047,11 +1021,10 @@ Offset Address：0x1200 Total Reset Value：0x0000_0000
 
 SFC_FAPC_EADDR_STATUS 为 FAPC 鉴权。
 
-Offset Address：0x1204 Total Reset Value：0x0000_0000
+Offset Address: 0x1204 Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -1069,11 +1042,10 @@ Offset Address：0x1204 Total Reset Value：0x0000_0000
 
 SFC_APC_ERR_INT 为 FAPC 鉴权
 
-Offset Address：0x1208 Total Reset Value：0x0000_0000
+Offset Address: 0x1208 Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -1096,11 +1068,10 @@ Offset Address：0x1208 Total Reset Value：0x0000_0000
 
 SFC_APC_CLR 为 FAPC 鉴权
 
-Offset Address：0x120C Total Reset Value：0x0000_0000
+Offset Address: 0x120C Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -1123,11 +1094,10 @@ Offset Address：0x120C Total Reset Value：0x0000_0000
 
 FAPC_ONE_WAY_LOCK 为 FAPC 鉴权锁定寄存器
 
-Offset Address：0x1220 Total Reset Value：0x0000_0000
+Offset Address: 0x1220 Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -1150,11 +1120,10 @@ Offset Address：0x1220 Total Reset Value：0x0000_0000
 
 LEA_LP_EN 为 LEA 控制
 
-Offset Address：0x1300 Total Reset Value：0x0000_0001
+Offset Address: 0x1300 Total Reset Value: 0x0000_0001
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -1177,11 +1146,10 @@ Offset Address：0x1300 Total Reset Value：0x0000_0001
 
 LEA_DFX_INFO is LEA DFX
 
-Offset Address：0x1304 Total Reset Value：0x0000_0000
+Offset Address: 0x1304 Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -1199,11 +1167,10 @@ Offset Address：0x1304 Total Reset Value：0x0000_0000
 
 LEA_IV_VLD 为 LEA 控制。
 
-Offset Address：0x1600 Total Reset Value：0x0000_0000
+Offset Address: 0x1600 Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -1226,11 +1193,10 @@ Offset Address：0x1600 Total Reset Value：0x0000_0000
 
 LEA_IV_ACPU_START_ADDR_0 为 LEA IV 解密起始地址寄存器 0。
 
-Offset Address：0x1640 Total Reset Value：0x0000_0000
+Offset Address: 0x1640 Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -1253,11 +1219,10 @@ Offset Address：0x1640 Total Reset Value：0x0000_0000
 
 LEA_IV_ACPU_START_ADDR_1 为 LEA IV 解密起始地址寄存器 1。
 
-Offset Address：0x1644 Total Reset Value：0x0000_0000
+Offset Address: 0x1644 Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -1280,11 +1245,10 @@ Offset Address：0x1644 Total Reset Value：0x0000_0000
 
 LEA_IV_ACPU_START_ADDR_2 为 LEA IV 解密起始地址寄存器 2。
 
-Offset Address：0x1648 Total Reset Value：0x0000_0000
+Offset Address: 0x1648 Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
@@ -1307,11 +1271,10 @@ Offset Address：0x1648 Total Reset Value：0x0000_0000
 
 LEA_IV_ACPU_START_ADDR_3 为 LEA IV 解密起始地址寄存器 3。
 
-Offset Address：0x164C Total Reset Value：0x0000_0000
+Offset Address: 0x164C Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
-:class: longtable
 
 * - Bits
   - Access
