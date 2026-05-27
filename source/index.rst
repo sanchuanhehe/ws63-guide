@@ -8,9 +8,9 @@ WS63 系列 SoC 用户指南
    preface
    ch1_overview
    ch2_system
-   ch3_qspi
-   ch4_wifi
+   ch3_qspi/index
+   ch4_wifi/index
    ch5_security
-   ch6_peripherals
+   ch6_peripherals/index
    ch7_jtag
    appendix
