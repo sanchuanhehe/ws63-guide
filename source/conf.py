@@ -60,6 +60,12 @@ html_language = 'zh_CN'
 latex_elements = {
     'papersize': 'a4paper',
     'pointsize': '10pt',
+    'fontpkg': r'''
+\usepackage{fontspec}
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+''',
     'preamble': r'''
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -70,18 +76,12 @@ latex_elements = {
 \usepackage{colortbl}
 \usepackage{multirow}
 \usepackage{hyperref}
-\usepackage{fontspec}
 
 % CJK support via fontspec (xeCJK requires ctexhook which is not available)
 \usepackage{xeCJK}
 \setCJKmainfont{Droid Sans Fallback}
 \setCJKsansfont{Droid Sans Fallback}
 \setCJKmonofont{Droid Sans Fallback}
-
-% Override Sphinx default FreeSerif with system-available DejaVu fonts
-\setmainfont{DejaVu Serif}
-\setsansfont{DejaVu Sans}
-\setmonofont{DejaVu Sans Mono}
 
 % Custom colors
 \definecolor{headerblue}{RGB}{51, 102, 153}
