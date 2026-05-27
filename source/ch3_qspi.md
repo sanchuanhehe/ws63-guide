@@ -11,7 +11,9 @@ SFC 是一个 SPI Flash 控制器。业务侧提供一个 AHB（Advanced High Pe
 SFC 应用框图
 ```
 
-注：IF（Interface）。
+```{note}
+IF（Interface）。
+```
 
 ## 功能描述
 
@@ -101,11 +103,10 @@ Flash 数据在线解密具有以下特点：
 ### 通过寄存器方式写 Flash 操作流程
 
 ```{important}
--  通过寄存器方式写 Flash 数据时，总线和 DMA 不得访问 Flash。
+- 通过寄存器方式写 Flash 数据时，总线和 DMA 不得访问 Flash。
 ```
 
-
--  单次写 Flash 不能跨越 Page 边界（寄存器写方式没有跨越 Page 边界保护，需要软件保证，如果跨越 256Byte 边界，将会 Wrap 到该 Page 的起始地址，覆盖原来的内容）。
+- 单次写 Flash 不能跨越 Page 边界（寄存器写方式没有跨越 Page 边界保护，需要软件保证，如果跨越 256Byte 边界，将会 Wrap 到该 Page 的起始地址，覆盖原来的内容）。
 
 通过寄存器写 Flash 的操作流程（中断方式），如图 3-3 所示。
 
@@ -114,7 +115,9 @@ Flash 数据在线解密具有以下特点：
 通过寄存器写 Flash 的操作流程（中断方式）
 ```
 
-注：WREN（Write Read Enable），PP（Page Program），RDSR（Read Status Register）。
+```{note}
+WREN（Write Read Enable），PP（Page Program），RDSR（Read Status Register）。
+```
 
 ### 通过寄存器方式其他操作流程
 
@@ -145,21 +148,17 @@ DMA 操作流程如下：
 4. 写 BUS_DMA_CTRL`start`为 1，使能 DMA 操作。
 5. 等待 dma_done 中断触发（中断方式）或轮询 DMA 操作完成（BUS_DMA_CTRL`start`变为 0）。
 
-### 说明
-
--  DMA 操作时可以同时 Flash 寄存器读命令操作。
-
--  DMA 操作时可以同时通过 AHB Slave 直接访问 Flash，但需保证中间不修改总线操作相关配置。
-
--  DMA 操作时需要保证首地址 4Byte 对齐。
-
- 
+```{note}
+- DMA 操作时可以同时进行 Flash 寄存器读命令操作。
+- DMA 操作时可以同时通过 AHB Slave 直接访问 Flash，但需保证中间不修改总线操作相关配置。
+- DMA 操作时需要保证首地址 4Byte 对齐。
+```
 
 ## 寄存器概览
 
 SFC 寄存器概览如表 3-1 所示。
 
-表3-1 SFC 寄存器概览（基址是 0x4800_0000）
+表 3-1 SFC 寄存器概览（基址是 0x4800_0000）
 
 ```{list-table}
 :header-rows: 1
@@ -270,7 +269,7 @@ SFC 寄存器概览如表 3-1 所示。
 
 SFC 寄存器偏移地址中变量的取值范围和含义如表 3-2 所示。
 
-表3-2SFC寄存器偏移地址变量表
+表 3-2 SFC 寄存器偏移地址变量表
 
 | 变量名称 | 取值范围 | 描述 |
 | --- | --- | --- |
@@ -301,17 +300,17 @@ Offset Address: 0x0100 Total Reset Value: 0x0000_0000
 * - [5:3]
   - RW
   - rd_delay
-  - SPI 读出数据延迟周期个数。000: 0.5~1 个时钟周期（默认值）;001: 1~1.5 个时钟周期;010: 1.5~2 个时钟周期;011: 2~2.5 个时钟周期;100: 2.5~3 个时钟周期;101: 3~3.5个时钟周期;110: 3.5~4个时钟周期;111: 不支持,(按照“110”含义处理)。
+  - SPI 读出数据延迟周期个数。000: 0.5~1 个时钟周期（默认值）;001: 1~1.5 个时钟周期;010: 1.5~2 个时钟周期;011: 2~2.5 个时钟周期;100: 2.5~3 个时钟周期;101: 3~3.5 个时钟周期;110: 3.5~4 个时钟周期;111: 不支持（按照”110”含义处理）。
   - 0x0
 * - [2]
   - RW
   - flash_addr_mode
-  - SPI地址模式。0: 3byte寻址模式（默认值）;1: 4byte寻址模式。注意:CMD_CONFIG`start`为1时写无效。
+  - SPI 地址模式。0: 3byte 寻址模式（默认值）;1: 4byte 寻址模式。注意：CMD_CONFIG[start]为 1 时写无效。
   - 0x0
 * - [1]
   - RW
   - wp_en
-  - 硬件写保护使能(写保护管脚)。0: 禁止;1: 使能。
+  - 硬件写保护使能（写保护管脚）。0: 禁止;1: 使能。
   - 0x0
 * - [0]
   - RW
@@ -481,18 +480,18 @@ Offset Address: 0x012C Total Reset Value: 0x0000_0000
 * - [1]
   - WO
   - dma_done_int_clr
-  - DMA 操作完成中断清除位,向该位写 1 将清除INT_STATUS`dma_done_int_status`和INT_RAW_STATUS`dma_done_int_raw_status`。0:不清除;1:清除。注意:清除操作完成后该位自动返回 0。
+  - DMA 操作完成中断清除位，向该位写 1 将清除 INT_STATUS[dma_done_int_status] 和 INT_RAW_STATUS[dma_done_int_raw_status]。0：不清除;1：清除。注意：清除操作完成后该位自动返回 0。
   - 0x0
 * - [0]
   - WO
   - cmd_op_end_int_clr
-  - 指令操作结束中断清除位,向该位写 1 将清除INT_STATUS`cmd_op_end_status`和INT_RAW_STATUS`cmd_op_end_raw_status`。0:不清除;1:清除。注意:清除操作完成后该位自动返回 0。
+  - 指令操作结束中断清除位，向该位写 1 将清除 INT_STATUS[cmd_op_end_status] 和 INT_RAW_STATUS[cmd_op_end_raw_status]。0：不清除;1：清除。注意：清除操作完成后该位自动返回 0。
   - 0x0
 ```
 
 ### SOFT_RST_MASK
 
-SOFT_RST_MASK 为软复位寄存器屏蔽位
+SOFT_RST_MASK 为软复位寄存器屏蔽位。
 
 Offset Address: 0x0130 Total Reset Value: 0x0000_0001
 
@@ -512,7 +511,7 @@ Offset Address: 0x0130 Total Reset Value: 0x0000_0001
 * - [0]
   - RW
   - sfc_bus_soft_rst_mask
-  - SFC 总线时钟域数字逻辑软复位屏蔽位:0:软复位可以正常生效;1:软复位被屏蔽,不会生效。
+  - SFC 总线时钟域数字逻辑软复位屏蔽位。0：软复位可以正常生效;1：软复位被屏蔽，不会生效。
   - 0x1
 ```
 
@@ -568,12 +567,12 @@ Offset Address: 0x0200 Total Reset Value: 0x8080_0300
 * - [5:3]
   - RW
   - rd_dummy_bytes
-  - 总线读操作 DummyByte。00: 没有 DummyByte;001: 1Byte010: 2Byte;......111: 7Byte。
+  - 总线读操作 DummyByte。000: 没有 DummyByte;001: 1Byte;010: 2Byte;......111: 7Byte。
   - 0x0
 * - [2:0]
   - RW
   - rd_mem_if_type
-  - 总线读操作指定连接的 SPI FLASH 接口类型。000: Standard SPI 接口类型;001: Dual-Input/Dual-OutputSPI;010: Dual-I/O SPI;101: Quad-Input/Dual-Output SPI;110: Quad-I/O SPI;其他: 保留。
+  - 总线读操作指定连接的 SPI FLASH 接口类型。000: Standard SPI 接口类型;001: Dual-Input/Dual-Output SPI;010: Dual-I/O SPI;101: Quad-Input/Dual-Output SPI;110: Quad-I/O SPI;其他: 保留。
   - 0x0
 ```
 
@@ -640,7 +639,7 @@ Offset Address: 0x0240 Total Reset Value: 0x0000_0000
 * - [0]
   - RW
   - dma_start
-  - DMA 传输使能控制。0: 无操作;1: 开始 DMA 操作。注意: DMA 传输完成自动回0。
+  - DMA 传输使能控制。0：无操作;1：开始 DMA 操作。注意：DMA 传输完成自动回 0。
   - 0x0
 ```
 
@@ -661,7 +660,7 @@ Offset Address: 0x0244 Total Reset Value: 0x0000_0000
 * - [31:0]
   - RW
   - dma_mem_saddr
-  - DMA 操作 memory 起始地址。Q353333 配置值应在0x0010_0000 ~0x00BF_FFFF 之间。
+  - DMA 操作 memory 起始地址。配置值应在 0x0010_0000 ~ 0x00BF_FFFF 之间。
   - 0x00000000
 ```
 
@@ -708,7 +707,7 @@ Offset Address: 0x024C Total Reset Value: 0x0000_0000
 * - [29:0]
   - RW
   - dma_len
-  - DMA 操作数据搬运长度(n+1),单位:byte。例如:6 表示长度为 7byte。
+  - DMA 操作数据搬运长度 (n+1)，单位：Byte。例如：6 表示长度为 7Byte。
   - 0x00000000
 ```
 
@@ -780,12 +779,12 @@ Offset Address: 0x0300 Total Reset Value: 0x0000_7E00
 * - [14:9]
   - RW
   - data_cnt
-  - 读写数据长度(单位:Byte)。0x00~0x3F:(n+1)Byte。例如:0x3F表示64Byte。
+  - 读写数据长度（单位：Byte）。0x00~0x3F：(n+1)Byte。例如：0x3F 表示 64Byte。
   - 0x3F
 * - [8]
   - RW
   - rw
-  - 标识此次操作数据读写,需`data_en`为1。0:写,有发送数据;1:读,有返回数据。
+  - 标识此次操作数据读写，需 data_en 为 1。0：写，有发送数据;1：读，有返回数据。
   - 0x0
 * - [7]
   - RW
@@ -815,7 +814,7 @@ Offset Address: 0x0300 Total Reset Value: 0x0000_7E00
 * - [0]
   - RW
   - start
-  - 标识指令操作开始。0:结束;1:开始。注意:此次操作完成后该位自动回0。
+  - 标识指令操作开始。0：结束;1：开始。注意：此次操作完成后该位自动回 0。
   - 0x0
 ```
 
@@ -875,7 +874,7 @@ Offset Address: 0x030C Total Reset Value: 0x0000_0000
 
 CMD_DATABUF_N 为命令操作方式数据 Buffer 寄存器。
 
-Offset Address: 0x0400＋4×n Total Reset Value: 0x0000_0000
+Offset Address: 0x0400 + 4×n Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
@@ -896,7 +895,7 @@ Offset Address: 0x0400＋4×n Total Reset Value: 0x0000_0000
 
 APC_CFG_START_ADDR 为 FAPC 鉴权。
 
-Offset Address: 0x1000＋4×n Total Reset Value: 0x0000_0000
+Offset Address: 0x1000 + 4×n Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
@@ -909,7 +908,7 @@ Offset Address: 0x1000＋4×n Total Reset Value: 0x0000_0000
 * - [31:8]
   - RW
   - apc_cfg_start_addr_n
-  - flash 存储区域划分 4 段地址区间,每段起始和截止地址位宽32bit,该寄存器表示第 n 段起始地址的高 24bit (n: 0~3)。注意:该处为绝对地址,包含总线基地址。
+  - flash 存储区域划分 4 段地址区间，每段起始和截止地址位宽 32bit，该寄存器表示第 n 段起始地址的高 24bit（n：0~3）。注意：该处为绝对地址，包含总线基地址。
   - 0x000000
 * - [7:0]
   - -
@@ -922,7 +921,7 @@ Offset Address: 0x1000＋4×n Total Reset Value: 0x0000_0000
 
 APC_CFG_END_ADDR 为 FAPC 鉴权。
 
-Offset Address: 0x1040＋4×n Total Reset Value: 0x0000_0000
+Offset Address: 0x1040 + 4×n Total Reset Value: 0x0000_0000
 
 ```{list-table}
 :header-rows: 1
@@ -935,7 +934,7 @@ Offset Address: 0x1040＋4×n Total Reset Value: 0x0000_0000
 * - [31:8]
   - RW
   - apc_cfg_end_addr_n
-  - flash 存储区域划分 4 段地址区间,每段起始和截止地址位宽 32bit,该寄存器表示第 n 段截止地址的高 24bit (n: 0~3)注:该处为绝对地址,包含总线基地址。
+  - flash 存储区域划分 4 段地址区间，每段起始和截止地址位宽 32bit，该寄存器表示第 n 段截止地址的高 24bit（n：0~3）。注：该处为绝对地址，包含总线基地址。
   - 0x000000
 * - [7:0]
   - -
@@ -1009,7 +1008,7 @@ Offset Address: 0x1204 Total Reset Value: 0x0000_0000
 
 ### SFC_APC_ERR_INT
 
-SFC_APC_ERR_INT 为 FAPC 鉴权
+SFC_APC_ERR_INT 为 FAPC 鉴权寄存器。
 
 Offset Address: 0x1208 Total Reset Value: 0x0000_0000
 
@@ -1035,7 +1034,7 @@ Offset Address: 0x1208 Total Reset Value: 0x0000_0000
 
 ### SFC_APC_CLR
 
-SFC_APC_CLR 为 FAPC 鉴权
+SFC_APC_CLR 为 FAPC 鉴权清除寄存器。
 
 Offset Address: 0x120C Total Reset Value: 0x0000_0000
 
@@ -1061,7 +1060,7 @@ Offset Address: 0x120C Total Reset Value: 0x0000_0000
 
 ### FAPC_ONE_WAY_LOCK
 
-FAPC_ONE_WAY_LOCK 为 FAPC 鉴权锁定寄存器
+FAPC_ONE_WAY_LOCK 为 FAPC 鉴权锁定寄存器。
 
 Offset Address: 0x1220 Total Reset Value: 0x0000_0000
 
@@ -1081,13 +1080,13 @@ Offset Address: 0x1220 Total Reset Value: 0x0000_0000
 * - [15:0]
   - RW
   - sfc_fpac_one way_lock
-  - 鉴权寄存器锁定位,bit0~3 分别表示 16 段地址区间对应的鉴权寄存器锁定位。0:对应鉴权寄存器可读可写;1:对应鉴权寄存器不可改写,只能读。注意:默认值是 0,一旦写 1,只有整 harden 复位才能归 0。
+  - 鉴权寄存器锁定位，bit0~3 分别表示 16 段地址区间对应的鉴权寄存器锁定位。0：对应鉴权寄存器可读可写;1：对应鉴权寄存器不可改写，只能读。注意：默认值是 0，一旦写 1，只有整 harden 复位才能归 0。
   - 0x0000
 ```
 
 ### LEA_LP_EN
 
-LEA_LP_EN 为 LEA 控制
+LEA_LP_EN 为 LEA 控制寄存器。
 
 Offset Address: 0x1300 Total Reset Value: 0x0000_0001
 
@@ -1113,7 +1112,7 @@ Offset Address: 0x1300 Total Reset Value: 0x0000_0001
 
 ### LEA_DFX_INFO
 
-LEA_DFX_INFO is LEA DFX
+LEA_DFX_INFO 为 LEA DFX 寄存器。
 
 Offset Address: 0x1304 Total Reset Value: 0x0000_0000
 
@@ -1154,7 +1153,7 @@ Offset Address: 0x1600 Total Reset Value: 0x0000_0000
 * - [0]
   - RW
   - lea_iv_vld
-  - AES IV 值有效寄存器。配置 AES_IV 之后,需要将该寄存器写 1,是配置同步生效,做完时钟同步之后,该信号自动归 0。
+  - AES IV 值有效寄存器。配置 AES_IV 之后，需要将该寄存器写 1，使配置同步生效，做完时钟同步之后，该信号自动归 0。
   - 0x0
 ```
 
@@ -1175,7 +1174,7 @@ Offset Address: 0x1640 Total Reset Value: 0x0000_0000
 * - [31:8]
   - RW
   - iv_start_addr_0
-  - ACPU IV 解密区域 0 的起始地址,该寄存器表示起始地址的高24bit。注意:该处为绝对地址,包含总线基地址。
+  - ACPU IV 解密区域 0 的起始地址，该寄存器表示起始地址的高 24bit。注意：该处为绝对地址，包含总线基地址。
   - 0x000000
 * - [7:0]
   - -
@@ -1184,7 +1183,7 @@ Offset Address: 0x1640 Total Reset Value: 0x0000_0000
   - 0x00
 ```
 
-#### LEA_IV_ACPU_START_ADDR_1
+### LEA_IV_ACPU_START_ADDR_1
 
 LEA_IV_ACPU_START_ADDR_1 为 LEA IV 解密起始地址寄存器 1。
 
@@ -1201,7 +1200,7 @@ Offset Address: 0x1644 Total Reset Value: 0x0000_0000
 * - [31:8]
   - RW
   - iv_start_addr_1
-  - ACPU IV 解密区域 1 的起始地址,该寄存器表示起始地址的高24bit。注意:该处为绝对地址,包含总线基地址。
+  - ACPU IV 解密区域 1 的起始地址，该寄存器表示起始地址的高 24bit。注意：该处为绝对地址，包含总线基地址。
   - 0x000000
 * - [7:0]
   - -
@@ -1210,7 +1209,7 @@ Offset Address: 0x1644 Total Reset Value: 0x0000_0000
   - 0x00
 ```
 
-#### LEA_IV_ACPU_START_ADDR_2
+### LEA_IV_ACPU_START_ADDR_2
 
 LEA_IV_ACPU_START_ADDR_2 为 LEA IV 解密起始地址寄存器 2。
 
@@ -1227,7 +1226,7 @@ Offset Address: 0x1648 Total Reset Value: 0x0000_0000
 * - [31:8]
   - RW
   - iv_start_addr_2
-  - ACPU IV 解密区域 2 的起始地址,该寄存器表示起始地址的高24bit。注意:该处为绝对地址,包含总线基地址。
+  - ACPU IV 解密区域 2 的起始地址，该寄存器表示起始地址的高 24bit。注意：该处为绝对地址，包含总线基地址。
   - 0x000000
 * - [7:0]
   - -
@@ -1236,7 +1235,7 @@ Offset Address: 0x1648 Total Reset Value: 0x0000_0000
   - 0x00
 ```
 
-#### LEA_IV_ACPU_START_ADDR_3
+### LEA_IV_ACPU_START_ADDR_3
 
 LEA_IV_ACPU_START_ADDR_3 为 LEA IV 解密起始地址寄存器 3。
 
@@ -1253,7 +1252,7 @@ Offset Address: 0x164C Total Reset Value: 0x0000_0000
 * - [31:8]
   - RW
   - iv_start_addr_3
-  - ACPU IV 解密区域 3 的起始地址,该寄存器表示起始地址的高24bit。注意:该处为绝对地址,包含总线基地址。
+  - ACPU IV 解密区域 3 的起始地址，该寄存器表示起始地址的高 24bit。注意：该处为绝对地址，包含总线基地址。
   - 0x000000
 * - [7:0]
   - -
