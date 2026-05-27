@@ -56,11 +56,14 @@ jobs:
             texlive-latex-extra
       - run: uv sync --locked
       - name: Build LaTeX PDF
-        run: uv run sphinx-build -M latexpdf source _build/pdf
+        run: |
+          uv run sphinx-build -b latex source _build/pdf/latex
+          sed -i 's/FreeSerif/DejaVu Serif/g; s/FreeSans/DejaVu Sans/g; s/FreeMono/DejaVu Sans Mono/g' _build/pdf/latex/ws63_user_guide.tex
+          make -C _build/pdf/latex all-pdf
       - uses: actions/upload-artifact@v4
         with:
           name: pdf
-          path: _build/pdf/ws63_user_guide.pdf
+          path: _build/pdf/latex/ws63_user_guide.pdf
 
   deploy:
     name: Deploy Pages
