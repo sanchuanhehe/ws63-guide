@@ -6,17 +6,13 @@
 
 ### 概述
 
-RF 部分包含 2.4G RX、TX、PLL 三个模块。支持 IEEE 802.11b/g/n/ax 20M 模式。 RF 的电路功能主要包含：
+RF 部分包含 2.4G RX、TX、PLL 三个模块，支持 IEEE 802.11b/g/n/ax 20M 模式。RF 电路主要功能包括：
 
-集成 TX/RX Switch。
-
-RX 通路包含 LNA、Mixer、LPF（Low Pass Filter）、VGA（Variable Gain Amplifier）。
-
-TX 通路包含 LPF、UPC（UP Converter）、PA（Power Amplifier）。
-
-集成 PLL/LO（Local Oscillator）通路，为信号通路提供 LO。
-
-集成了 Radar 功能
+- 集成 TX/RX Switch
+- RX 通路：LNA、Mixer、LPF（Low Pass Filter）、VGA（Variable Gain Amplifier）
+- TX 通路：LPF、UPC（UP Converter）、PA（Power Amplifier）
+- 集成 PLL/LO（Local Oscillator）通路，为信号通路提供本振
+- 集成 Radar 功能
 
 ```{figure} images/fig-4-1-rf-arch.jpg
 :name: fig-4-1
@@ -33,7 +29,7 @@ WiFi RF 具有以下功能特点：
 
 ### RF 性能
 
-芯片集成 2.4G WiFi/BLE/SLE 收发机，支持雷达功能。除雷达在 RFI口接收之外，其 他的功能都在 RFIO 口测试。
+芯片集成 2.4G WiFi/BLE/SLE 收发机，支持雷达功能。除雷达在 RFI 口接收外，其他功能均在 RFIO 口测试。
 
 ```{list-table}
 :header-rows: 1
@@ -52,21 +48,21 @@ WiFi RF 具有以下功能特点：
   - 2500
   - MHz
   - 2401MHz 以下和2483.5MHz 以上频点无法满足无委会辐射要求。信道频率的选择需要遵循协议和法规要求。
-* - **WIF RX 11b 灵敏度**
+* - **WiFi RX 11b 灵敏度**
   -
   -
   -
   -
   -
   -
-* - 1 MbpsDSSS
+* - 1 Mbps DSSS
   - -
   - -99
   - -98
   - dBm
   -
   -
-* - 2 MbpsDSSS
+* - 2 Mbps DSSS
   - -
   - -96
   - -95
@@ -87,7 +83,7 @@ WiFi RF 具有以下功能特点：
   - dBm
   -
   -
-* - **WIF RX 11g 灵敏度**
+* - **WiFi RX 11g 灵敏度**
   -
   -
   -
@@ -150,7 +146,7 @@ WiFi RF 具有以下功能特点：
   - dBm
   -
   -
-* - **WIF RX 11n HT20-MF 灵敏度**
+* - **WiFi RX 11n HT20-MF 灵敏度**
   -
   -
   -
@@ -164,140 +160,140 @@ WiFi RF 具有以下功能特点：
   - dBm
   - BCC Long PER 10%, 4096
   -
-* - HT20MCS1
+* - HT20 MCS1
   - -
   - -92
   - -91
   - dBm
   -
   -
-* - HT20MCS2
+* - HT20 MCS2
   - -
   - -90
   - -88
   - dBm
   -
   -
-* - HT20MCS3
+* - HT20 MCS3
   - -
   - -87
   - -85
   - dBm
   -
   -
-* - HT20MCS4
+* - HT20 MCS4
   - -
   - -83
   - -82
   - dBm
   -
   -
-* - HT20MCS5
+* - HT20 MCS5
   - -
   - -79
   - -78
   - dBm
   -
   -
-* - HT20MCS6
+* - HT20 MCS6
   - -
   - -77
   - -75
   - dBm
   -
   -
-* - HT20MCS7
+* - HT20 MCS7
   - -
   - -76
   - -74
   - dBm
   -
   -
-* - **WIF RX 11n HT40-MF 灵敏度**
+* - **WiFi RX 11n HT40-MF 灵敏度**
   -
   -
   -
   -
   -
   -
-* - HT40MCS0
+* - HT40 MCS0
   - -
   - -93
   - -92
   - dBm
   -
   -
-* - HT40MCS1
+* - HT40 MCS1
   - -
   - -90
   - -88
   - dBm
   -
   -
-* - HT40MCS2
+* - HT40 MCS2
   - -
   - -87
   - -86
   - dBm
   -
   -
-* - HT40MCS3
+* - HT40 MCS3
   - -
   - -84
   - -83
   - dBm
   -
   -
-* - HT40MCS4
+* - HT40 MCS4
   - -
   - -81
   - -79
   - dBm
   -
   -
-* - HT40MCS5
+* - HT40 MCS5
   - -
   - -76
   - -75
   - dBm
   -
   -
-* - HT40MCS6
+* - HT40 MCS6
   - -
   - -74
   - -73
   - dBm
   -
   -
-* - HT40MCS7
+* - HT40 MCS7
   - -
   - -73
   - -72
   - dBm
   -
   -
-* - **WIF RX 11ax HE20 灵敏度**
+* - **WiFi RX 11ax HE20 灵敏度**
   -
   -
   -
   -
   -
   -
-* - HE20MCS0
+* - HE20 MCS0
   - -
   - -96
   - -95
   - dBm
   -
   -
-* - HE20MCS1
+* - HE20 MCS1
   - -
   - -93
   - -92
   - dBm
   -
   -
-* - HE20MCS2
+* - HE20 MCS2
   - -
   - -91
   - -89
@@ -353,7 +349,7 @@ WiFi RF 具有以下功能特点：
   - dBm
   -
   -
-* - **WIFI RX 11b 最大解调电平**
+* - **WiFi RX 11b 最大解调电平**
   -
   -
   -
@@ -388,21 +384,21 @@ WiFi RF 具有以下功能特点：
   - dBm
   -
   -
-* - WIFI RX 11g 最大解调电平
+* - WiFi RX 11g 最大解调电平
   - 64-QAM, R=3/4 (54Mbps OFDM)
   - -
   - 0
   - -
   - dBm
   - PER 8%, 1000 octets PPDU
-* - WIFI RX 11n HT20 最大解调电平
+* - WiFi RX 11n HT20 最大解调电平
   - HT20 MCS7
   - -
   - 0
   - -
   - dBm
   - PER 10%, 4096 octets PPDU
-* - **WIFI RX 11b 邻道抑制比**
+* - **WiFi RX 11b 邻道抑制比**
   -
   -
   -
@@ -437,7 +433,7 @@ WiFi RF 具有以下功能特点：
   - dB
   - 有用信号-70dBm, PER 8%, 1024 octets PPDU
   -
-* - **WIFI RX 11g 邻道抑制比**
+* - **WiFi RX 11g 邻道抑制比**
   -
   -
   -
@@ -500,98 +496,98 @@ WiFi RF 具有以下功能特点：
   - dB
   - 有用信号-62dBm, PER 8%, 1000 octets PPDU
   -
-* - **WIFI RX 11n HT20 邻道抑制比**
+* - **WiFi RX 11n HT20 邻道抑制比**
   -
   -
   -
   -
   -
   -
-* - HT20MCS0
+* - HT20 MCS0
   - -
   - 30
   - -
   - dB
   - 有用信号-79dBm,PER 10%, 4096octets PPDU
   -
-* - HT20MCS1
+* - HT20 MCS1
   - -
   - 29
   - -
   - dB
   - 有用信号-76dBm,PER 10%, 4096octets PPDU
   -
-* - HT20MCS2
+* - HT20 MCS2
   - -
   - 26
   - -
   - dB
   - 有用信号-74dBm,PER 10%, 4096octets PPDU
   -
-* - HT20MCS3
+* - HT20 MCS3
   - -
   - 24
   - -
   - dB
   - 有用信号-71dBm,PER 10%, 4096octets PPDU
   -
-* - HT20MCS4
+* - HT20 MCS4
   - -
   - 19
   - -
   - dB
   - 有用信号-67dBm,PER 10%, 4096octets PPDU
   -
-* - HT20MCS5
+* - HT20 MCS5
   - -
   - 17
   - -
   - dB
   - 有用信号-63dBm,PER 10%, 4096octets PPDU
   -
-* - HT20MCS6
+* - HT20 MCS6
   - -
   - 15
   - -
   - dB
   - 有用信号-62dBm,PER 10%, 4096octets PPDU
   -
-* - HT20MCS7
+* - HT20 MCS7
   - -
   - 13
   - -
   - dB
   - 有用信号-61dBm,PER 10%, 4096octets PPDU
   -
-* - **WIFI RX 11n HT40 邻道抑制比**
+* - **WiFi RX 11n HT40 邻道抑制比**
   -
   -
   -
   -
   -
   -
-* - HT40MCS0
+* - HT40 MCS0
   - -
   - 29
   - -
   - dB
   - 有用信号-76dBm,PER 10%, 4096octets PPDU
   -
-* - HT40MCS1
+* - HT40 MCS1
   - -
   - 27
   - -
   - dB
   - 有用信号-73dBm,PER 10%, 4096octets PPDU
   -
-* - HT40MCS2
+* - HT40 MCS2
   - -
   - 24
   - -
   - dB
   - 有用信号-71dBm,PER 10%, 4096octets PPDU
   -
-* - HT40MCS3
+* - HT40 MCS3
   - -
   - 21
   - -
@@ -1284,11 +1280,9 @@ WLAN 电容校准。
 
 WLAN PHY 实现 802.11 协议定义的物理层功能，包括：
 
-802.11b 协议定义的 DSSS、CCK 调制解调。
-
-802.11g、802.11n、802.11ax 协议定义的 OFDM 调制解调包括发送的加扰、交 织、编码、OFDM 调制等处理；接收方向 OFDM 解调、Viterbi 译码、解交织、解 扰等处理；同时实现 AGC（Automatic Gain Control）、CCA（Clear Channel Assessment）、RSSI(Receive Signal Strength Indicator)功能。
-
-实现 RF/ABB 校准功能。
+- 802.11b 协议定义的 DSSS、CCK 调制解调
+- 802.11g、802.11n、802.11ax 协议定义的 OFDM 调制解调：发送方向包括加扰、交织、编码、OFDM 调制等处理；接收方向包括 OFDM 解调、Viterbi 译码、解交织、解扰等处理；同时实现 AGC（Automatic Gain Control）、CCA（Clear Channel Assessment）、RSSI（Receive Signal Strength Indicator）功能
+- RF/ABB 校准功能
 
 ### 功能描述
 
@@ -1314,23 +1308,23 @@ WiFi PHY 具有以下功能特点：
 
 ### 工作方式
 
-PHY 模式初始化配置支持物理带宽为 20MHz 的 WiFi 业务收发，在业务模式下可以根 据与 AP 的交互完成不同物理带宽的切换，也可以再测试模式下配置不同的物理带宽 用于性能测试或者问题定位。PHY 会根据不同的带宽，自适应驱动配置，完成基带数 据发送或者接收。根据上层业务的需求，PHY 主要支持以下几种工作模式。
+PHY 模式初始化配置支持物理带宽为 20MHz 的 WiFi 业务收发，在业务模式下可以根据与 AP 的交互完成不同物理带宽的切换，也可以在测试模式下配置不同的物理带宽用于性能测试或问题定位。PHY 会根据不同的带宽自适应驱动配置，完成基带数据发送或接收。根据上层业务的需求，PHY 主要支持以下几种工作模式。
 
-### 校准模式
+#### 校准模式
 
-在上电时对 ABB/RF 进行离线校准，RF 配置校准模式，复用 PHY 中部分逻辑通路进 行校准计算，校准项主要包括 TXDC、TXIQ、TXPWR、RXDC、RXIQ、RXRC 等， 校准完成后将校准结果存储在 PHY 中对应配置寄存器中，在测试或者业务模式下自动 线控调用，优化 ABB/RF 性能。
+在上电时对 ABB/RF 进行离线校准，RF 配置校准模式，复用 PHY 中部分逻辑通路进行校准计算，校准项主要包括 TXDC、TXIQ、TXPWR、RXDC、RXIQ、RXRC 等。校准完成后将结果存储在 PHY 对应配置寄存器中，在测试或业务模式下自动线控调用，优化 ABB/RF 性能。
 
-### 测试模式
+#### 测试模式
 
-测试模式，主要是常发、常收测试。其中常发测试主要是指基于描述符后来者配置寄 存器下发 TXVECTOR 来启动 RF 线控及 PHY 内部编码调制等，最终将数字 DAC 数 据送给 ABB/RF 输出，多帧连续输出，配合仪器用于测试发送时各种性能指标或者基 本问题定位；常收测试主要将进过 ABB/RF 的数字 ADC 数据送给 PHY进行解调，并 将解调后的数据送给 MAC 进行 FCS(Frame Check Sequence)校验，来统计接收数据 的是否正确，多帧连续输入，配合仪器用于测试接收时各种性能指标或者基本问题定 位。
+测试模式主要是常发、常收测试。常发测试指基于描述符或配置寄存器下发 TXVECTOR 来启动 RF 线控及 PHY 内部编码调制等，最终将数字 DAC 数据送给 ABB/RF 输出，多帧连续输出，配合仪器用于测试发送时各种性能指标或基本问题定位；常收测试将经过 ABB/RF 的数字 ADC 数据送给 PHY 进行解调，并将解调后的数据送给 MAC 进行 FCS（Frame Check Sequence）校验，来统计接收数据是否正确，多帧连续输入，配合仪器用于测试接收时各种性能指标或基本问题定位。
 
-### 业务模式
+#### 业务模式
 
-业务模式下，PHY 受上层 MAC 主控，与 AP 进行收发通信。业务发送时，PHY 接收 来自 MAC 的 TXVECTOR，启动 RF 线控及 PHY 编码调制等，最终将数字 DAC 送给 ABB/RF 数采。业务接收时，PHY 将来自 ABB/RF 的数字 ADC 数据经过 AGC 控制后 进行解调译码，并将解析后数据送给上层 MAC 进一步处理。
+业务模式下，PHY 受上层 MAC 主控，与 AP 进行收发通信。业务发送时，PHY 接收来自 MAC 的 TXVECTOR，启动 RF 线控及 PHY 编码调制等，最终将数字 DAC 送给 ABB/RF 数采。业务接收时，PHY 将来自 ABB/RF 的数字 ADC 数据经过 AGC 控制后进行解调译码，并将解析后数据送给上层 MAC 进一步处理。
 
-### 雷达感知模式
+#### 雷达感知模式
 
-雷达感知模式下，PHY受上层 MAC 主控，根据业务需求启动雷达感知使能，PHY会 从 PKTRAM 中读取 DAC 采样率下的雷达数据，经过校准后送给 ABB/RF；同时会将 经过 ABB/RF 的数字 ADC 数据经过固定增益控制后的 ADC 数据进行校准处理，然后 校准后的 ADC 数据储存在 PKTRAM 中，并给出中断信息，CPU 收到中断信息后对存 储在 PKTRAM 中的雷达数据做进一步处理，满足雷达感知业务需求。
+雷达感知模式下，PHY 受上层 MAC 主控，根据业务需求启动雷达感知使能。PHY 从 PKTRAM 中读取 DAC 采样率下的雷达数据，经过校准后送给 ABB/RF；同时将经过 ABB/RF 的数字 ADC 数据经过固定增益控制后进行校准处理，校准后的 ADC 数据储存在 PKTRAM 中，并给出中断信息，CPU 收到中断信息后对存储在 PKTRAM 中的雷达数据做进一步处理，满足雷达感知业务需求。
 
 #### PSD 模式
 
@@ -1364,49 +1358,45 @@ WiFi MAC 具有以下功能特点：
 
 ### 工作方式
 
-### AP 模式
+#### AP 模式
 
 在一个基础 BSS（Basic Service Set）网络中提供所有接入点的基本功能，包括：
 
-发送 Beacon 帧声明 BSS 的存在和能力。
-
-为 BSS 中的客户端提供无线关联和认证服务。
-
-管理 BSS 网络中与之关联的客户端。
+- 发送 Beacon 帧声明 BSS 的存在和能力
+- 为 BSS 中的客户端提供无线关联和认证服务
+- 管理 BSS 网络中与之关联的客户端
 
 芯片支持 1 个 AP。
 
-### STA 模式
+#### STA 模式
 
-在一个基础 BSS 网络中提供扫描发现网络、加入网络并管理与 AP 的连接以提供数据 收发服务的功能。
+在一个基础 BSS 网络中提供扫描发现网络、加入网络并管理与 AP 的连接以提供数据收发服务的功能。
 
 芯片支持 2 个 STA。
 
-### Monitor 模式
+#### Monitor 模式
 
 芯片进入 Monitor 模式，实现网卡的功能，MAC 将接收到的所有帧上报软件。
 
-### AP 与 STA 共存
+#### AP 与 STA 共存
 
 芯片支持 1 个 AP 和 1 个 STA 同时工作。
 
 芯片支持 2.4G 下 AP/STA 在相同或不同信道的并发，分别对应同频共存和异频共存。
 
-约束：STA 上电后会进行信道扫描，导致信道切换，因此开启 AP/STA 动态共存时， 需要先创建 STA，再创建 AP，否则将会影响 AP 的工作信道。
+```{important}
+STA 上电后会进行信道扫描，导致信道切换，因此开启 AP/STA 动态共存时，需要先创建 STA，再创建 AP，否则将会影响 AP 的工作信道。
+```
 
-### CSI 模式
+#### CSI 模式
 
-CSI（Channel State Information）模式支持将 PHY 上报的信道状态信息（CSI）过滤 后上报软件：
+CSI（Channel State Information）模式支持将 PHY 上报的信道状态信息过滤后上报软件：
 
-支持 11g/11n/11ax 的 CSI 信息上报，不支持 11b。
-
-支持对将提取 CSI 的帧进行源地址过滤，源地址过滤列表（白名单）共 6 个（关 联设备使用 LUT（Lookup Table）中的地址内容）。
-
-支持 6 个 CSI 采样周期，CSI 采样周期与白名单绑定，一个白名单对应一个采集 周期。
-
--  支持白名单、采样周期、特定帧类型等匹配条件，满足匹配条件才上报 CSI 信 息。
-
-支持带宽（20MHz、40MHz）、帧格式（NON-HT、HT-MF）、RSSI（Received Signal Strength Indicator）、SNR（Signal Noise Ratio）随 CSI 信息上报（不支 持 STBC 帧上报），上报 L-LTF H 矩阵数据。
+- 支持 11g/11n/11ax 的 CSI 信息上报，不支持 11b
+- 支持对将提取 CSI 的帧进行源地址过滤，源地址过滤列表（白名单）共 6 个（关联设备使用 LUT（Lookup Table）中的地址内容）
+- 支持 6 个 CSI 采样周期，CSI 采样周期与白名单绑定，一个白名单对应一个采集周期
+- 支持白名单、采样周期、特定帧类型等匹配条件，满足匹配条件才上报 CSI 信息
+- 支持带宽（20MHz、40MHz）、帧格式（NON-HT、HT-MF）、RSSI（Received Signal Strength Indicator）、SNR（Signal Noise Ratio）随 CSI 信息上报（不支持 STBC 帧上报），上报 L-LTF H 矩阵数据
 
 ## BLE/SLE
 
@@ -1564,28 +1554,25 @@ BLE 支持 AES-128 加密方式，SLE 支持 SM4 和 AES-128 加密。
 
 ### 靠近检测
 
-### 须知
+```{important}
+指标是在公版模组上测试得到，在其他自研模组上，天线设计需要满足天线隔离度、天线方向性和天线增益等要求，否则性能会受到影响。
+```
 
-指标是在公版模组上测试得到，在其他自研模组上，天线设计需要满足天线隔离度、 天线方向性和天线增益等要求，否则性能会受到影响。
-
-可以检测距离芯片 2.5m 范围内运动人体，并分[0, 1.5m]、[1.5m, 2.5m]两档上报，上 报延时＜1s，准确率＞99%
+可以检测距离芯片 2.5m 范围内运动人体，并分 \[0, 1.5m\]、\[1.5m, 2.5m\] 两档上报，上报延时＜1s，准确率＞99%。
 
 ### 存在检测
 
-### 须知
-
-1. 上述指标是在公版模组上测试得到，在其他自研模组上，天线设计需要满足天线隔 离度、天线方向性和天线增益等要求，否则性能会受到影响
-
-2. 芯片提供一定抗非人体干扰能力，比如晃动的绿植、风吹窗帘等，但是要占用额外 的内存和算力，识别延时＜5s，准确率＞95%。
+```{important}
+1. 上述指标是在公版模组上测试得到，在其他自研模组上，天线设计需要满足天线隔离度、天线方向性和天线增益等要求，否则性能会受到影响。
+2. 芯片提供一定抗非人体干扰能力，比如晃动的绿植、风吹窗帘等，但是要占用额外的内存和算力，识别延时＜5s，准确率＞95%。
+```
 
 可以检测距离芯片 6m 内是否存在运动人体，上报延时＜2s，准确率＞99%。
 
 ### 工作方式
 
-雷达模块与 WIFI 业务之间通过分时共存，雷达信号本身有如下特点：
+雷达模块与 WiFi 业务之间通过分时共存，雷达信号本身有如下特点：
 
-雷达信号间隔 5ms。
-
-雷达信号占空比＜2%。
-
-最快每 0.32s 上报一次检测结果。
+- 雷达信号间隔 5ms
+- 雷达信号占空比＜2%
+- 最快每 0.32s 上报一次检测结果
