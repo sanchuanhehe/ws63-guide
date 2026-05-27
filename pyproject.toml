@@ -1,13 +1,16 @@
 [project]
 name = "ws63-user-guide"
 version = "01"
+description = "WS63 系列 SoC Wi-Fi、BLE 和 SLE Combo 芯片 — 用户指南"
+readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "sphinx>=7.0",
-    "myst-parser>=3.0",
-    "sphinx-rtd-theme>=2.0",
+    "myst-parser>=4.0",
+    "sphinx>=8.0,<9.0",
+    "sphinx-rtd-theme>=3.0",
     "sphinxcontrib-mermaid>=0.9",
 ]
 
 [tool.uv]
+package = false
 dev-dependencies = []

@@ -1,0 +1,87 @@
+name: Docs
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docs-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build HTML
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --locked
+      - name: Build HTML
+        run: uv run sphinx-build -b html -c source source _build/html
+      - uses: actions/upload-artifact@v4
+        with:
+          name: html
+          path: _build/html
+      - name: Prepare Pages artifact
+        if: github.event_name != 'pull_request'
+        run: touch _build/html/.nojekyll
+      - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request'
+        with:
+          path: _build/html
+
+  pdf:
+    name: Build PDF
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Install TeX Live
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            fonts-droid-fallback \
+            fonts-noto-cjk \
+            latexmk \
+            texlive-xetex \
+            texlive-latex-recommended \
+            texlive-fonts-recommended \
+            texlive-latex-extra
+      - run: uv sync --locked
+      - name: Build LaTeX PDF
+        run: uv run sphinx-build -M latexpdf -c source source _build/pdf
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pdf
+          path: _build/pdf/ws63_user_guide.pdf
+
+  deploy:
+    name: Deploy Pages
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment
+
+  linkcheck:
+    name: Link Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --locked
+      - name: Check links
+        continue-on-error: true
+        run: uv run sphinx-build -b linkcheck -c source source _build/linkcheck
