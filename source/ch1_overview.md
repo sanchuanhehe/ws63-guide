@@ -2,14 +2,6 @@
 
 # 产品概述
 
-概述
-
-功能描述
-
-逻辑框图
-
-应用场景
-
 ## 概述
 
 Q3533333N1100 系列芯片是一款高度集成的 2.4GHz SoC Wi-Fi、BLE 和 SLE 的 Combo 芯片，集成 IEEE 802.11b/g/n/ax 基带和 RF 电路，RF 电路包括功率放大器 PA、低噪声放大器 LNA、RF balun、天线开关以及电源管理等模块；支持 HT 20MHz/40MHz、HE 20MHz 标准带宽，提供最大 150Mbit/s 物理层速率。
@@ -128,18 +120,13 @@ Sparklink Wireless Communication Low Enery Air-interface Technical Requirements 
 
 Q353333N1100 系列芯片逻辑框图如图 1-1 所示。
 
-
 图1-1 Q353333N1100 系列芯片逻辑框图
-
 
 ![image](images/fig-1-1-chip-block-diagram.jpg)
 
-
 其中，图中的各模块功能描述如表 1-1 所示。
 
-
 表1-1 模块功能描述
-
 
 ```{list-table}
 :header-rows: 1
@@ -227,11 +214,8 @@ Q353333N1100 系列芯片逻辑框图如图 1-1 所示。
 
 Q353333N1100 系列芯片适应于智能家电等物联网智能终端领域，典型应用框图如图 1-2 所示。
 
-
 图1-2 Q353333N1100 系列芯片典型应用框图
 
-
 ![image](images/fig-1-2-typical-application-1.jpg)
-
 
 ![image](images/fig-1-2-typical-application-2.jpg)

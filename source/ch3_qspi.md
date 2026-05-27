@@ -2,26 +2,13 @@
 
 # QSPI Flash 控制器
 
-概述
-
-功能描述
-
-工作方式
-
-寄存器概览
-
-寄存器描述
-
 ## 概述
 
 SFC 是一个 SPI Flash 控制器。业务侧提供一个 AHB（Advanced High Performance Bus） Slave 接口，主要完成 AHB 通道对 SPI Flash 的访问控制功能；提供一个 AHB Master 接口，用于 DMA 方式读写 Flash。
 
-
 图3-1 SFC 应用框图
 
-
 ![image](images/fig-3-1-sfc-block-diagram.jpg)
-
 
 注：IF（Interface）。
 
@@ -131,12 +118,9 @@ Flash 数据在线解密具有以下特点：
 
 通过寄存器读取 Flash 的操作流程（查询方式），如图 3-2 所示。
 
-
 图3-2 通过寄存器读取 Flash 的操作流程（查询方式）
 
-
 ![image](images/fig-3-2-sfc-reg-read-flow.jpg)
-
 
 ### 通过寄存器方式写 Flash 操作流程
 
@@ -148,26 +132,19 @@ Flash 数据在线解密具有以下特点：
 
 通过寄存器写 Flash 的操作流程（中断方式），如图 3-3 所示。
 
-
 图3-3 通过寄存器写 Flash 的操作流程（中断方式）
-
 
 ![image](images/fig-3-3-sfc-reg-write-flow.jpg)
 
-
 注：WREN（Write Read Enable），PP（Page Program），RDSR（Read Status Register）。
-
 
 ### 通过寄存器方式其他操作流程
 
 通过寄存器方式其他操作流程如图 3-4 所示。
 
-
 图3-4 通过寄存器方式其他操作流程
 
-
 ![image](images/fig-3-4-sfc-other-op-flow.jpg)
-
 
 ### 说明
 
@@ -209,9 +186,7 @@ DMA 操作流程如下：
 
 SFC 寄存器概览如表 3-1 所示。
 
-
 表3-1 SFC 寄存器概览（基址是 0x4800_0000）
-
 
 ```{list-table}
 :header-rows: 1
@@ -323,9 +298,7 @@ SFC 寄存器概览如表 3-1 所示。
 
 SFC 寄存器偏移地址中变量的取值范围和含义如表 3-2 所示。
 
-
 表3-2SFC寄存器偏移地址变量表
-
 
 ```{list-table}
 :header-rows: 1
@@ -1150,9 +1123,7 @@ Offset Address：0x120C Total Reset Value：0x0000_0000
 
 FAPC_ONE_WAY_LOCK 为 FAPC 鉴权锁定寄存器
 
-
 Offset Address：0x1220 Total Reset Value：0x0000_0000
-
 
 ```{list-table}
 :header-rows: 1
@@ -1179,9 +1150,7 @@ Offset Address：0x1220 Total Reset Value：0x0000_0000
 
 LEA_LP_EN 为 LEA 控制
 
-
 Offset Address：0x1300 Total Reset Value：0x0000_0001
-
 
 ```{list-table}
 :header-rows: 1
@@ -1208,9 +1177,7 @@ Offset Address：0x1300 Total Reset Value：0x0000_0001
 
 LEA_DFX_INFO is LEA DFX
 
-
 Offset Address：0x1304 Total Reset Value：0x0000_0000
-
 
 ```{list-table}
 :header-rows: 1

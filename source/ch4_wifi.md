@@ -2,18 +2,6 @@
 
 # WiFi /BLE & SLE 系统
 
-WiFi / BLE & SLE RF
-
-WiFi/BLE & SLE ABB
-
-WiFi PHY
-
-WiFi MAC
-
-BLE/SLE
-
-雷达特性
-
 ## WiFi / BLE & SLE RF
 
 ### 概述
@@ -30,12 +18,9 @@ TX 通路包含 LPF、UPC（UP Converter）、PA（Power Amplifier）。
 
 集成了 Radar 功能
 
-
 图4-1 RF 电路模块架构
 
-
 ![image](images/fig-4-1-rf-arch.jpg)
-
 
 ### 功能描述
 
@@ -1256,15 +1241,11 @@ WiFi IQ DAC
 
 WiFi ADC（1 个通道，通道有 IQ）、WiFi DAC（1 个通道，通道有 IQ），以及时钟 buf 模块和 LDO，共同包括在 Q353333N1100 WL ABB 中，时钟 buf 和 LDO 不作为独立 功能模块，不在行为模型中独立体现。
 
-
 图4-2 ABB 模块组成
-
 
 ![image](images/fig-4-2-abb-block.jpg)
 
-
 注：WADC（WiFi Analog Digital Converter），WDAC（WiFi Digital Analog Converter）。
-
 
 ### 功能描述
 
@@ -1436,9 +1417,7 @@ BLE/SLE 部分包含 MODEM 和 MAC，MODEM 实现调制解调功能，MAC 部分
 
 BLE 主要特性如表 4-1 所示。
 
-
 表4-1 BLE 主要特性
-
 
 ```{list-table}
 :header-rows: 1
@@ -1530,9 +1509,7 @@ BLE 主要特性如表 4-1 所示。
 
 SLE 主要特性如表 4-2 所示。
 
-
 表4-2 SLE 主要特性
-
 
 ```{list-table}
 :header-rows: 1
