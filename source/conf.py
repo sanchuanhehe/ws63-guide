@@ -78,6 +78,11 @@ latex_elements = {
 \setCJKsansfont{Droid Sans Fallback}
 \setCJKmonofont{Droid Sans Fallback}
 
+% Override Sphinx default FreeSerif with system-available DejaVu fonts
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+
 % Custom colors
 \definecolor{headerblue}{RGB}{51, 102, 153}
 \definecolor{lightgray}{RGB}{240, 240, 240}
