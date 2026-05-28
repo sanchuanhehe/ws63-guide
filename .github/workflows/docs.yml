@@ -53,7 +53,8 @@ jobs:
             texlive-xetex \
             texlive-latex-recommended \
             texlive-fonts-recommended \
-            texlive-latex-extra
+            texlive-latex-extra \
+            texlive-xindy
       - run: uv sync --locked
       - name: Build LaTeX PDF
         run: |
