@@ -354,7 +354,8 @@ LSADC 基址 `0x4400_C000`（见第 2 章），中断 `LSADC_INTR` = IRQ 72，6 
 位偏移 18:19 取自 HAL 注释，随 SoC 的 `SPI_MAX_XFER_SIZE` 编译宏而定 **[推断]**。
 ```
 
-**SCKDV 分频**：`Fsclk_out = Fssi_clk / SCKDV`，SCKDV 取偶数，范围 2..65534（`Fssi_clk` = 系统时钟 240 MHz）。
+**SCKDV 分频**：`Fsclk_out = Fssi_clk / SCKDV`，SCKDV 取偶数，范围 2..65534。`Fssi_clk` 为 **PLL 衍生的 160 MHz**
+（ch2 表 2-3；**非** 240 MHz CPU 时钟）。注：厂商实为两级分频——480 MHz PLL 经 CLDO_CRG 分频得 SSI_CLK，再经 SCKDV 得 SCK。
 **SPI_WSR 状态位**：`rfne`(bit3 RX 非空)、`tfnf`(bit11 TX 不满)、`tfe`(bit12 TX 空)、`sbf`(bit15 忙)。
 
 ### I2C（hal_i2c_v150）
@@ -399,7 +400,9 @@ LSADC 基址 `0x4400_C000`（见第 2 章），中断 `LSADC_INTR` = IRQ 72，6 
 **I2C_SR 状态位**：`int_done`(0)、`int_arb_loss`(1)、`int_ack_err`(2 NACK)、`int_rx`(3)、`int_tx`(4)、
 `int_stop`(5)、`int_start`(6)、`bus_busy`(7)、`int_rxtide`(8)、`int_txtide`(9)、`int_txfifo_over`(10)。
 **I2C_COM 命令位**：`op_stop`(0)、`op_we`(1 写)、`op_rd`(2 读)、`op_start`(3)、`op_ack`(4，0=ACK/1=NACK)；
-[3:0] 在操作后自动清。**时钟**：`scl_h`/`scl_l` 写入值 ×2 = SCL 高/低电平计数。
+[3:0] 在操作后自动清。**时钟**：`scl_h`/`scl_l` 写入值 ×2 = SCL 高/低电平计数；分频基准为 **24 MHz TCXO 晶体**
+——与 UART/SPI 不同，`clock_init` 不把 I2C 切到 PLL，而是 `i2c_port_set_clock_value(REQ_24M)` 留在晶体上
+（ch2 表 2-3 的「I2C 80 MHz」是总线能力标称值，非 SDK 实际用于 SCL 分频的时钟）。
 
 ```{note}
 **超时模型**：C SDK 的 `hal_i2c_v150_wait` 每次轮询 `osal_udelay(1)` 并 `time_out++`，
