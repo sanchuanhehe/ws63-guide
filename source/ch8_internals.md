@@ -709,12 +709,14 @@ eFuse 根密钥验签。
 **CONTROL（0x10）位域**：`enable`(0)、`mode`[2:1]、`int_mask`(3)、`rstfsm`(4 复位 FSM)、
 `cnt_req`(5 置位锁存当前值以相干读取)、`cnt_lock`(6 RO 锁存就绪)。
 **模式 `mode`[2:1]**：0 = one-shot、1 = periodic、2 = one-shot（别名）、3 = free-running。
-时钟为晶体分频，厂商默认 `TIMER_CLOCK_VALUE` = **32 MHz**（可运行时设置）；无内置预分频器。
-当前值的相干读取走 `cnt_req` → 轮询 `cnt_lock` 握手。
+**计数时钟为 TCXO 晶体**（24 MHz；40 MHz 晶体板为 40 MHz）：硅片上由 `clock_init` 经
+`timer_porting_clock_value_set(REQ_24M)` 设定，`CONFIG_TIMER_CLOCK_VALUE` 的 32 MHz 仅为 Kconfig 占位默认。
+故 1 µs = 24 拍；无内置预分频器。当前值的相干读取走 `cnt_req` → 轮询 `cnt_lock` 握手。
 
 ```{note}
 **[校正]** PAC 的 `Mode` 枚举文档把编码写反（标 0=free-run/1=one-shot/2=periodic）；**以厂商 SDK 为准**
-（0 = one-shot、1 = periodic、3 = free-run）。另：厂商 timer 时钟 32 MHz 与系统 240 MHz 不同，换算定时值时勿混用。
+（0 = one-shot、1 = periodic、3 = free-run）。另：timer 计数时钟是 **TCXO 晶体（24/40 MHz）**，**不是**系统
+240 MHz CPU/PLL 时钟——换算定时值勿混用（32 MHz 是 Kconfig 占位，被 `clock_init` 的晶体路径覆盖）。
 ```
 
 ## RTC 与 48 位系统计数器
@@ -795,7 +797,9 @@ WDT 基址 `0x4000_6000`，Synopsys DesignWare 风格，32 位递减计数（装
 ```{important}
 WS63 的解锁魔数是 **`0x5A5A5A5A`**，不是 DesignWare 经典的 `0x1ACCE551`。WDT 中断**不在** IRQ ≥ 26 的外部中断表内，
 而是经专用处理走 **NMI 类**通路（与第 2 章「NMI 由 WDOG 中断触发」一致）；超时按 `rst_en` 触发**全芯片复位**，
-脉冲长度由 `rst_pl` 决定。厂商时钟 `CONFIG_WDT_CLOCK` = 24 MHz（注释标 FPGA）。
+脉冲长度由 `rst_pl` 决定。**计数时钟为 TCXO 晶体**（24 MHz；硅片上 `clock_init` 经
+`watchdog_port_set_clock(REQ_24M)` 设定，与 `CONFIG_WDT_CLOCK` 的 24 MHz 一致；40 MHz 晶体板为 40 MHz）。
+24 位 `WDT_LOAD` 位于 [31:8]，装载值 = `(timeout × clock) >> 8`，故最大超时 ≈ `(0xFFFFFF << 8) / 24 MHz ≈ 178 s`。
 ```
 
 ## TCXO 时间基准
