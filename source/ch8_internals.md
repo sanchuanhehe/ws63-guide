@@ -656,6 +656,188 @@ SFC（串行 Flash 控制器）基址 `0x4800_0000`（见第 2 章），外接 S
 eFuse 根密钥验签。
 ```
 
+## 定时器（Timer）寄存器
+
+第 2 章给出 3 个可独立配置的 32 位定时器及其三种模式（one-shot/periodic/free-running），本节给出寄存器编程模型。
+基址 `0x4400_2000`；每个定时器占 **0x100 步进**的子块：Timer0 @ +0x100、Timer1 @ +0x200、Timer2 @ +0x300；
+另有 +0x00..0x88 的**公共窗**（VMID 权限校验、锁、异常中断聚合）。中断 `TIMER_INT0/1/2` = 26/27/28，
+共享异常线 `TIMER_ABNOR` = 60（见表 2-5）。计数器为**递减计数**，硬件最高支持 64 位（load/current 各有 0/1 两字）。
+
+表8-17 单个 Timer 寄存器（偏移相对该定时器子块基址）
+
+```{list-table}
+:header-rows: 1
+
+* - 偏移
+  - 名称
+  - 访问
+  - 说明
+* - 0x00
+  - `LOAD_COUNT0`
+  - RW
+  - 装载/重载值，低 32 位
+* - 0x04
+  - `LOAD_COUNT1`
+  - RW
+  - 装载值高 32 位（64 位定时器）
+* - 0x08
+  - `CURRENT_VALUE0`
+  - RO
+  - 当前递减计数，低 32 位
+* - 0x0C
+  - `CURRENT_VALUE1`
+  - RO
+  - 当前计数高 32 位
+* - 0x10
+  - `CONTROL`
+  - RW
+  - 控制（位域见下）
+* - 0x14
+  - `EOI`
+  - RO
+  - 读清中断（end-of-interrupt）
+* - 0x18
+  - `RAW_INTR`
+  - RO
+  - 原始（未屏蔽）中断状态
+* - 0x1C
+  - `INTR`
+  - RO
+  - 屏蔽后中断状态
+```
+
+**CONTROL（0x10）位域**：`enable`(0)、`mode`[2:1]、`int_mask`(3)、`rstfsm`(4 复位 FSM)、
+`cnt_req`(5 置位锁存当前值以相干读取)、`cnt_lock`(6 RO 锁存就绪)。
+**模式 `mode`[2:1]**：0 = one-shot、1 = periodic、2 = one-shot（别名）、3 = free-running。
+时钟为晶体分频，厂商默认 `TIMER_CLOCK_VALUE` = **32 MHz**（可运行时设置）；无内置预分频器。
+当前值的相干读取走 `cnt_req` → 轮询 `cnt_lock` 握手。
+
+```{note}
+**[校正]** PAC 的 `Mode` 枚举文档把编码写反（标 0=free-run/1=one-shot/2=periodic）；**以厂商 SDK 为准**
+（0 = one-shot、1 = periodic、3 = free-run）。另：厂商 timer 时钟 32 MHz 与系统 240 MHz 不同，换算定时值时勿混用。
+```
+
+## RTC 与 48 位系统计数器
+
+官方地址映射表里的 **RTC（0x4000_5000）** 实为一个 **48 位自由运行递加计数器**（厂商 SDK 内部名 `SYSTICK`），
+即第 2 章 RTC 小节描述的「48bit free running 递加计数器、32 kHz、上电即计数、支持阈值中断」，中断 `RTC_IRQ` = 29。
+
+表8-18 系统计数器寄存器（基址 0x4000_5000）
+
+```{list-table}
+:header-rows: 1
+
+* - 偏移
+  - 名称
+  - 位
+  - 说明
+* - 0x18
+  - `RTC_TIME_OUT_H`
+  - [15:0]
+  - 计数高 16 位
+* - 0x1C
+  - `RTC_TIME_OUT_L`
+  - [31:0]
+  - 计数低 32 位
+```
+
+读取：先读低 32 位、再读高 16 位拼成 48 位值（双读取保证相干）；自由运行、无使能位、无装载值；时钟 32 kHz。
+
+```{note}
+厂商 SDK 另有一个独立的 RTC IP（`rtc_unified`，porting 与 PAC 给出基址 **`0x5702_4000`**，位于官方简表范围之外），
+含 4 个 **32 位**实例（步进 0x14），每实例寄存器：`LOAD_COUNT`(0x00)、`CURRENT_VALUE`(0x04)、
+`CONTROL`(0x08，位 `enable`(0)/`mode`(1，0=自由运行/1=周期)/`int_mask`(2))、`EOI`(0x0C 读清)、`INT_STATUS`(0x10)，
+用作可编程周期/阈值中断。该 IP 的基址超出官方地址映射表，标注为 **[推断/超出官方映射]**。
+```
+
+## 看门狗（WDT）寄存器
+
+WDT 基址 `0x4000_6000`，Synopsys DesignWare 风格，32 位递减计数（装载值 24 位）。对应第 2 章看门狗的两种工作方式。
+
+表8-19 WDT 寄存器（偏移相对基址）
+
+```{list-table}
+:header-rows: 1
+
+* - 偏移
+  - 名称
+  - 说明
+* - 0x00
+  - `WDT_LOCK`
+  - 锁/解锁：写 `0x5A5A5A5A` 解锁；读 0=已解锁、1=锁定
+* - 0x04
+  - `WDT_LOAD`
+  - 装载值（[31:8] = 24bit 计数；[7:0] 保留）
+* - 0x08
+  - `WDT_RESTART`
+  - 喂狗/重启（写入即重载计数器）
+* - 0x0C
+  - `WDT_EOI`
+  - 中断清除（读清）
+* - 0x10
+  - `WDT_CR`
+  - 控制（位域见下）
+* - 0x14
+  - `WDT_CNT`
+  - 当前 32 位递减计数
+* - 0x18 / 0x1C
+  - `WDT_RAW_INTR` / `WDT_INTR`
+  - 原始 / 屏蔽后中断状态（bit0）
+* - 0x28
+  - `WDT_CCVR_EN`
+  - 计数锁存：`ccvr_req`(0 置位锁存) / `ccvr_lock`(1 锁存就绪)
+```
+
+**WDT_CR（0x10）位域**：`wdt_en`(0)、`rst_en`(2 允许产生系统复位)、`rst_pl`[5:3]（复位脉冲长度 2/4/8/…/256 时钟）、
+`wdt_imsk`(6 中断屏蔽)、`wdt_mode`(7：0=一次中断后复位、1=两次中断后复位)。
+**喂狗时序**：解锁(`0x5A5A5A5A`) → 写 `WDT_RESTART` → 重新锁定。
+
+```{important}
+WS63 的解锁魔数是 **`0x5A5A5A5A`**，不是 DesignWare 经典的 `0x1ACCE551`。WDT 中断**不在** IRQ ≥ 26 的外部中断表内，
+而是经专用处理走 **NMI 类**通路（与第 2 章「NMI 由 WDOG 中断触发」一致）；超时按 `rst_en` 触发**全芯片复位**，
+脉冲长度由 `rst_pl` 决定。厂商时钟 `CONFIG_WDT_CLOCK` = 24 MHz（注释标 FPGA）。
+```
+
+## TCXO 时间基准
+
+TCXO 计数器是芯片的**单调时间基准**，基址 `0x4400_04C0`，**64 位**自由运行计数（由 4 个 16 位 COUNT 寄存器拼成），
+tick 速率 **24 MHz**。它是 ws63-rs 的 embassy 时间驱动 `now()` 的时钟源（与定时器闹钟配合实现 `Timer::after`）。
+
+表8-20 TCXO 寄存器（偏移相对 0x4400_04C0）
+
+```{list-table}
+:header-rows: 1
+
+* - 偏移
+  - 名称
+  - 位
+  - 说明
+* - 0x00
+  - `TCXO_STATUS`
+  - —
+  - 控制/状态：`refresh`(0 写 1 锁存当前计数)、`clear`(1 清零)、`enable`(2)、`valid`(4 锁存有效，refresh 后轮询)
+* - 0x04
+  - `COUNT0`
+  - [15:0]
+  - 计数 [15:0]
+* - 0x08
+  - `COUNT1`
+  - [15:0]
+  - 计数 [31:16]
+* - 0x0C
+  - `COUNT2`
+  - [15:0]
+  - 计数 [47:32]
+* - 0x10
+  - `COUNT3`
+  - [15:0]
+  - 计数 [63:48]
+```
+
+**读取序列**：写 `refresh` → 轮询 `valid` → 读 `COUNT0..3` 拼成 64 位计数。**闹钟映射**：embassy 时间驱动以
+**TIMER 通道 0**（IRQ `TIMER_INT0` = 26）作一次性闹钟——`set_alarm` 算出 `delta` 写入 `Timer0 LOAD_COUNT0` 并使能，
+触发后 `on_alarm_interrupt` 唤醒到期任务并按下一个截止时间重装。
+
 ## Wi-Fi/BLE 子系统：内存区、掩膜 ROM 与单核架构
 
 第 {ref}`4 章 <ch4-wifi>` 描述 Wi-Fi/BLE/SLE 的射频与协议。本节补充**把闭源协议栈链接进固件**所需的

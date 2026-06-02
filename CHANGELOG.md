@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
   - "xlinx" 自定义指令集扩展（编码空间 + 指令表，及与 Zcb/Zcmp/Zcmt 的冲突）
   - eFuse / LSADC / SPI / I2C 逐寄存器映射与时序、SPI `trsm` 语义、I2C 超时模型
   - DMA 双控制器与外设握手 ID 表、CLDO_CRG 时钟门控位映射、复位原因解码
+  - Timer / RTC(48 位 SYSTICK + rtc_unified) / WDT / TCXO 寄存器映射与位域、定时器三模式编码、WDT 解锁魔数与 NMI 复位通路、TCXO 64 位时间基准
   - SFC 寄存器与启动流程、镜像头布局；Wi-Fi/BLE 内存区、掩膜 ROM 符号表（3752 符号）、单核架构证据、闭源库目录
   - 信息来源：fbb_ws63 C SDK + 逐寄存器复核的 ws63-hal + ws63-qemu 模型；推断项均标注
 - ARCHITECTURE.md document linking to monorepo architecture docs
