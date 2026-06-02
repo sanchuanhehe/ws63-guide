@@ -731,7 +731,7 @@ graph LR
 时钟使能寄存器 `CKEN_CTL0` = `0x4400_1100`（索引 0）、`CKEN_CTL1` = `0x4400_1104`（索引 1）。
 各外设时钟门控位如下（复位默认**已使能**，多数驱动不主动门控）。
 
-表8-15 外设时钟门控位（CKEN_CTL0/1）
+表8-15 SDK 确认的时钟门控位（经 fbb_ws63 porting + SVD 逐一核对）
 
 ```{list-table}
 :header-rows: 1
@@ -739,68 +739,42 @@ graph LR
 * - 外设
   - 寄存器
   - 位
-  - 外设
-  - 寄存器
-  - 位
-* - PWM（9 门控 [10:2]，基位）
+  - 依据
+* - PWM（9 门控 [10:2]）
   - CKEN0
-  - 2
-  - UART0
+  - 基位 2
+  - `pwm_porting.c`
+* - I2S 总线
+  - CKEN0
+  - 11
+  - `sio_porting.c`
+* - I2S 时钟
+  - CKEN0
+  - 12
+  - `sio_porting.c`
+* - UART0 / 1 / 2
   - CKEN1
-  - 18
-* - I2C0
-  - CKEN0
-  - 18
-  - UART1
-  - CKEN1
-  - 19
-* - I2C1
-  - CKEN0
-  - 19
-  - UART2
-  - CKEN1
-  - 20
-* - Timer
-  - CKEN0
-  - 21
-  - DMA
-  - CKEN1
-  - 22
-* - LSADC
-  - CKEN0
-  - 22
-  - SDMA
-  - CKEN1
-  - 23
-* - Tsensor
-  - CKEN0
-  - 23
-  - SFC
-  - CKEN1
-  - 24
-* - I2S
-  - CKEN0
-  - 24
-  - SPI0
+  - 18 / 19 / 20
+  - `clock_init.c` + SVD `uart_cken[20:18]`
+* - SPI
   - CKEN1
   - 25
-* - TRNG
-  - CKEN0
-  - 25
-  - SPI1
+  - `spi_porting.c` + SVD `spi_cken[25]`
+* - WiFi 入口总时钟
   - CKEN1
-  - 26
-* - 安全子系统
-  - CKEN0
-  - 26
-  - —
-  - —
-  - —
+  - 13
+  - `clock_init.c`
+* - BT/BLE 硬件组
+  - CKEN1
+  - 8–12 / 14:13 / 29
+  - `pm_porting.c`
 ```
 
-```{note}
-直接经硅片证据确认的位：**PWM 基位 = 2**、**SPI = 25**（SVD 的 `spi_cken` + `spi_porting.c`）、
-UART0 = 18（SVD `uart_cken [20:18]`）。其余位取自经 SVD 字段范围交叉核对的 HAL 枚举。
+```{important}
+**校正（经 SDK 核对）**：上表是 SDK porting 代码**实际写门控位**的全部外设。其余外设——**I2C、Timer、
+LSADC、Tsensor、TRNG、安全子系统、DMA、SDMA、SFC、SPI1**——SDK **不单独门控**（依赖复位默认开），SVD 也
+未给出其 cken 字段，故无权威门控位来源。早期把它们标到 CKEN0 18–26 / CKEN1 22–24、并把 **I2S 误标为
+CKEN0 bit24**（实为 bit 11 总线 + bit 12 时钟）均不可靠；这些未证实位已在 `ws63-hal/src/clock.rs` 显式标注为占位。
 ```
 
 完整的时钟产生路径（FNPLL 2880 MHz、CLK_SEL 源选择、DIV_CTL 分频、各外设派生频率与启动序列）见上一节
