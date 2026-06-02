@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
   - eFuse / LSADC / SPI / I2C 逐寄存器映射与时序、SPI `trsm` 语义、I2C 超时模型
   - DMA 双控制器与外设握手 ID 表、CLDO_CRG 时钟门控位映射、复位原因解码
   - Timer / RTC(48 位 SYSTICK + rtc_unified) / WDT / TCXO 寄存器映射与位域、定时器三模式编码、WDT 解锁魔数与 NMI 复位通路、TCXO 64 位时间基准
+  - 完整时钟树（实证重建）：单一 FNPLL 固定 VCO 2880 MHz（FBDIV 0x78@24M / 0x48@40M）→ 整数分频 240/160/120/320/480 MHz；CLK_SEL 源选择位映射、DIV_CTL 分频、各外设派生频率表、启动时钟序列；含 mermaid 时钟树图与 SDK-vs-ch2 差异（I2C 24MHz 晶体 vs 标称 80、SPI 480 根、I2S 12.288 MCLK）
   - SFC 寄存器与启动流程、镜像头布局；Wi-Fi/BLE 内存区、掩膜 ROM 符号表（3752 符号）、单核架构证据、闭源库目录
   - 信息来源：fbb_ws63 C SDK + 逐寄存器复核的 ws63-hal + ws63-qemu 模型；推断项均标注
 - ARCHITECTURE.md document linking to monorepo architecture docs
