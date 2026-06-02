@@ -8,6 +8,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
+- 第 8 章「底层实现补充（基于厂商 SDK 与仿真器实证）」——汇总原厂手册留白的可编程细节：
+  - 处理器自定义本地中断控制器（LOCI\* CSR：LOCIPRI/LOCIEN/LOCIPD/LOCIPCLR/PRITHD 地址与位映射、向量化 mtvec/mcause 模型）
+  - "xlinx" 自定义指令集扩展（编码空间 + 指令表，及与 Zcb/Zcmp/Zcmt 的冲突）
+  - eFuse / LSADC / SPI / I2C 逐寄存器映射与时序、SPI `trsm` 语义、I2C 超时模型
+  - DMA 双控制器与外设握手 ID 表、CLDO_CRG 时钟门控位映射、复位原因解码
+  - SFC 寄存器与启动流程、镜像头布局；Wi-Fi/BLE 内存区、掩膜 ROM 符号表（3752 符号）、单核架构证据、闭源库目录
+  - 信息来源：fbb_ws63 C SDK + 逐寄存器复核的 ws63-hal + ws63-qemu 模型；推断项均标注
 - ARCHITECTURE.md document linking to monorepo architecture docs
 - CPU ISA details with per-extension table (RV32IMFC_Zicsr: rv32i2p1_m2p0_f2p2_c2p0_zicsr2p0)
 - Sphinx glossary with cross-references for abbreviations
