@@ -356,7 +356,8 @@ LSADC 基址 `0x4400_C000`（见第 2 章），中断 `LSADC_INTR` = IRQ 72，6 
 
 **SCKDV 分频**：`Fsclk_out = Fssi_clk / SCKDV`，SCKDV 取偶数，范围 2..65534。`Fssi_clk` 为 **PLL 衍生的 160 MHz**
 （ch2 表 2-3；**非** 240 MHz CPU 时钟）。注：厂商实为两级分频——480 MHz PLL 经 CLDO_CRG 分频得 SSI_CLK，再经 SCKDV 得 SCK。
-**SPI_WSR 状态位**：`rfne`(bit3 RX 非空)、`tfnf`(bit11 TX 不满)、`tfe`(bit12 TX 空)、`sbf`(bit15 忙)。
+**SPI_WSR 状态位**（按 SVD 显式 bitRange，PAC/HAL 即用此布局）：`busy`(bit0 忙)、`txfnf`(bit1 TX 不满)、
+`txfe`(bit2 TX 空)、`rxfne`(bit3 RX 非空)、`rxfo`/`txfo`(bit4/5 溢出)。
 
 ### I2C（hal_i2c_v150）
 
